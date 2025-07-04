@@ -5,96 +5,186 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>BlocentraAI | Secure the Future of Bitcoin</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0F172A',
+            accent: '#3B82F6',
+          }
+        }
+      }
+    }
+  </script>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans leading-relaxed">
+<body class="bg-gray-50 text-gray-800 font-sans">
 
-  <!-- Header -->
-  <header class="bg-black text-white p-6 shadow-md">
-    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center">
-      <h1 class="text-3xl font-bold">BlocentraAI</h1>
-      <p class="mt-2 sm:mt-0 text-lg italic">Securing the Future of Bitcoin</p>
+  <!-- Navigation -->
+  <header class="bg-primary text-white sticky top-0 z-50 shadow">
+    <div class="max-w-7xl mx-auto px-4 py-5 flex justify-between items-center">
+      <h1 class="text-2xl font-bold">BlocentraAI</h1>
+      <nav class="space-x-6 text-sm">
+        <a href="#mission" class="hover:text-accent">Mission</a>
+        <a href="#solution" class="hover:text-accent">Solution</a>
+        <a href="#features" class="hover:text-accent">Features</a>
+        <a href="#roadmap" class="hover:text-accent">Roadmap</a>
+        <a href="#team" class="hover:text-accent">Team</a>
+        <a href="#contact" class="hover:text-accent">Contact</a>
+      </nav>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="bg-white py-16 text-center px-6">
-    <h2 class="text-4xl font-bold mb-4">AI-Powered Bitcoin Insurance & Risk Intelligence</h2>
-    <p class="text-xl max-w-3xl mx-auto text-gray-600">
-      BlocentraAI transforms Bitcoin from a passive store of value into a protected, intelligent, and yield-generating asset—designed for retail users, institutions, and DeFi platforms.
+  <!-- Hero -->
+  <section class="bg-white py-20 text-center px-6">
+    <h2 class="text-5xl font-extrabold mb-4">Transforming Bitcoin Into a Safe, Intelligent Asset</h2>
+    <p class="text-lg max-w-3xl mx-auto text-gray-600 mb-6">
+      BlocentraAI is an AI-powered Bitcoin insurance and risk intelligence platform unlocking the true potential of idle BTC through predictive analytics, smart underwriting, and protected yield infrastructure.
     </p>
+    <a href="#contact" class="bg-accent text-white px-6 py-3 rounded text-lg hover:bg-blue-700 transition">Talk to Us</a>
   </section>
 
-  <!-- About Section -->
-  <section class="py-16 px-6 bg-gray-100">
-    <div class="max-w-5xl mx-auto grid gap-12 md:grid-cols-2">
+  <!-- Mission & Vision -->
+  <section id="mission" class="py-20 bg-gray-100 px-6">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
       <div>
-        <h3 class="text-2xl font-semibold mb-2">Mission</h3>
+        <h3 class="text-3xl font-bold mb-4">Our Mission</h3>
         <p>
-          To make Bitcoin insurable, intelligent, and financially productive—bridging the gap between decentralized assets and institutional-grade protection through AI-native infrastructure.
+          To unlock the full value of Bitcoin by making it safe, productive, and accessible to all users—through AI-native infrastructure that delivers insurance, risk scoring, and protected yield, without compromising decentralization.
         </p>
       </div>
       <div>
-        <h3 class="text-2xl font-semibold mb-2">Vision</h3>
+        <h3 class="text-3xl font-bold mb-4">Our Vision</h3>
         <p>
-          A global future where Bitcoin is not only secure but predictive and integrated into the mainstream economy as a regulated, trusted asset class.
+          A global financial ecosystem where Bitcoin is as protected, insurable, and integrated as any regulated asset—empowered by predictive AI and intelligent infrastructure.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Key Features -->
-  <section class="py-16 px-6 bg-white">
-    <div class="max-w-6xl mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-10">Key Features</h2>
-      <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3 text-left">
+  <!-- Problem & Solution -->
+  <section id="solution" class="py-20 bg-white px-6">
+    <div class="max-w-5xl mx-auto">
+      <h3 class="text-3xl font-bold text-center mb-10">The Problem & Our Solution</h3>
+      <div class="grid md:grid-cols-2 gap-10">
         <div>
-          <h4 class="font-semibold text-lg">AI Risk Engine</h4>
-          <p>Real-time wallet trust scores, behavioral alerts, anomaly detection, and predictive models for systemic threats.</p>
+          <h4 class="text-xl font-semibold mb-2">The Problem</h4>
+          <ul class="list-disc list-inside space-y-2 text-gray-700">
+            <li>Over 99% of BTC is idle and uninsured</li>
+            <li>No AI-native infrastructure for BTC risk detection</li>
+            <li>Lack of wallet trust scores and real-time threat prediction</li>
+            <li>Institutions face entry barriers due to compliance gaps</li>
+          </ul>
         </div>
         <div>
-          <h4 class="font-semibold text-lg">BTC Insurance</h4>
-          <p>Non-custodial, dynamically priced insurance for wallets, smart contracts, and BTCFi protocols.</p>
+          <h4 class="text-xl font-semibold mb-2">Our Solution</h4>
+          <ul class="list-disc list-inside space-y-2 text-gray-700">
+            <li>Dynamic BTC insurance and yield activation</li>
+            <li>AI-powered real-time risk and trust scoring</li>
+            <li>Non-custodial protection and lending tools</li>
+            <li>Compliance-ready dashboards and APIs</li>
+          </ul>
         </div>
-        <div>
-          <h4 class="font-semibold text-lg">Yield Vaults</h4>
-          <p>Protected lending and yield tools for unlocking idle BTC without compromising control.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="py-20 bg-gray-100 px-6">
+    <div class="max-w-6xl mx-auto">
+      <h3 class="text-3xl font-bold text-center mb-12">Key Features</h3>
+      <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
+        <div class="bg-white p-6 rounded shadow">
+          <h4 class="font-semibold text-xl mb-2">Risk Engine</h4>
+          <p>Predictive AI wallet scoring and threat detection</p>
         </div>
-        <div>
-          <h4 class="font-semibold text-lg">API Integration</h4>
-          <p>Real-time risk data and insurance access for exchanges, wallets, custodians, and regulators via APIs.</p>
+        <div class="bg-white p-6 rounded shadow">
+          <h4 class="font-semibold text-xl mb-2">BTC Insurance</h4>
+          <p>Smart coverage for wallets, bridges & smart contracts</p>
         </div>
-        <div>
-          <h4 class="font-semibold text-lg">Compliance Tools</h4>
-          <p>Institutional dashboards for AML, KYC, and GDPR compliance across jurisdictions.</p>
+        <div class="bg-white p-6 rounded shadow">
+          <h4 class="font-semibold text-xl mb-2">BTCFi Vaults</h4>
+          <p>Protected yield from risk-scored BTC lending pools</p>
         </div>
-        <div>
-          <h4 class="font-semibold text-lg">Smart Claims</h4>
-          <p>AI-assisted automated underwriting and smart contract–based payouts.</p>
+        <div class="bg-white p-6 rounded shadow">
+          <h4 class="font-semibold text-xl mb-2">API & Compliance</h4>
+          <p>Dashboards and APIs for B2B, regulators, exchanges</p>
+        </div>
+        <div class="bg-white p-6 rounded shadow">
+          <h4 class="font-semibold text-xl mb-2">Smart Claims</h4>
+          <p>Automated, blockchain-verifiable claims processing</p>
+        </div>
+        <div class="bg-white p-6 rounded shadow">
+          <h4 class="font-semibold text-xl mb-2">Risk Data Feed</h4>
+          <p>Anonymized insights for institutional monitoring</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Target Customers -->
-  <section class="py-16 px-6 bg-gray-100">
-    <div class="max-w-5xl mx-auto">
-      <h2 class="text-3xl font-bold text-center mb-10">Who We Serve</h2>
-      <ul class="space-y-4 text-lg">
-        <li>✅ Retail Bitcoin Holders & HODLers</li>
-        <li>✅ High-Net-Worth Investors & Family Offices</li>
-        <li>✅ Wallet Providers, Custodians & DeFi Protocols</li>
-        <li>✅ Crypto Exchanges & Institutional Traders</li>
-        <li>✅ Regulators & Government Agencies</li>
-      </ul>
+  <section class="py-20 bg-white px-6">
+    <div class="max-w-5xl mx-auto text-center">
+      <h3 class="text-3xl font-bold mb-6">Who We Serve</h3>
+      <p class="mb-4 text-lg text-gray-700">
+        We support retail BTC holders, high-net-worth individuals, custodians, asset managers, wallets, exchanges, BTCFi protocols, and regulators.
+      </p>
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section class="py-16 px-6 bg-white text-center">
-    <h2 class="text-3xl font-bold mb-4">Contact Us</h2>
-    <p class="text-lg mb-4">We're based in Estonia with global ambitions. Let's build the Bitcoin trust layer together.</p>
-    <p class="text-xl font-medium">📧 <a href="mailto:riekgatluak25@gmail.com" class="text-blue-600 underline">riekgatluak25@gmail.com</a></p>
+  <!-- How it Works -->
+  <section class="py-20 bg-gray-100 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <h3 class="text-3xl font-bold mb-8">How It Works</h3>
+      <ol class="space-y-6 text-left">
+        <li><strong>1. Connect Wallet:</strong> Users integrate via wallet or API</li>
+        <li><strong>2. Risk Scan:</strong> AI scores risk and wallet trust in real time</li>
+        <li><strong>3. Get Coverage:</strong> Dynamically priced BTC insurance issued</li>
+        <li><strong>4. Earn Yield:</strong> Optional BTCFi vaults provide safe returns</li>
+        <li><strong>5. Monitor & Protect:</strong> Real-time alerts, scoring updates, and claims engine active</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Market Opportunity -->
+  <section class="py-20 bg-white px-6">
+    <div class="max-w-5xl mx-auto text-center">
+      <h3 class="text-3xl font-bold mb-6">Market Opportunity</h3>
+      <p class="text-lg text-gray-700">
+        With over $1.2 trillion in Bitcoin capitalization and 99% idle, the untapped market for BTC risk infrastructure, insurance, and yield exceeds $400 billion. BlocentraAI is first-mover for Bitcoin-native AI protection.
+      </p>
+    </div>
+  </section>
+
+  <!-- Roadmap -->
+  <section id="roadmap" class="py-20 bg-gray-100 px-6">
+    <div class="max-w-6xl mx-auto text-center">
+      <h3 class="text-3xl font-bold mb-10">Our Roadmap</h3>
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 text-left">
+        <div><h4 class="font-semibold mb-2">Year 1</h4><p>MVP live, pilot users onboarded, $400M BTC protected</p></div>
+        <div><h4 class="font-semibold mb-2">Year 2</h4><p>EU expansion, API licensing, $1.6B BTC protected</p></div>
+        <div><h4 class="font-semibold mb-2">Year 3</h4><p>North America launch, 100+ B2B clients, $4.5B protected</p></div>
+        <div><h4 class="font-semibold mb-2">Year 4</h4><p>MENA rollout, DeFi partnerships, $12B BTC protected</p></div>
+        <div><h4 class="font-semibold mb-2">Year 5</h4><p>Global scale: $27B BTC protected, $430M revenue</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section id="team" class="py-20 bg-white px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <h3 class="text-3xl font-bold mb-8">Meet the Team</h3>
+      <p><strong>Riek Gatluak Geka</strong> – Founder & CEO<br/>Crypto security expert & AI strategist</p>
+      <p class="mt-4 text-gray-600">+ hiring blockchain devs, AI engineers, underwriters, and compliance leaders</p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-20 bg-primary text-white text-center px-6">
+    <h3 class="text-3xl font-bold mb-4">Get in Touch</h3>
+    <p class="text-lg">📧 <a href="mailto:riekgatluak25@gmail.com" class="underline">riekgatluak25@gmail.com</a></p>
     <p class="text-lg">📱 WhatsApp: +211 981 211 736</p>
+    <p class="text-sm mt-2">Based in Estonia | Operating globally</p>
   </section>
 
   <!-- Footer -->
