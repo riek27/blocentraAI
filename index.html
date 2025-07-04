@@ -1,240 +1,870 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>BlocentraAI | Secure the Future of Bitcoin</title>
-  <meta name="description" content="BlocentraAI is an AI-powered Bitcoin insurance and risk intelligence platform for secure, compliant, and productive BTC management." />
-  <meta property="og:title" content="BlocentraAI | Secure the Future of Bitcoin" />
-  <meta property="og:description" content="AI-powered BTC insurance, risk scoring, and yield activation for individuals and institutions." />
-  <meta property="og:url" content="https://yourusername.github.io/yourrepo/" />
-  <link rel="icon" href="favicon.ico" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: '#0F172A',
-            accent: '#3B82F6',
-          },
-        },
-      },
-    };
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlocentraAI | AI-Powered Bitcoin Insurance & Risk Intelligence</title>
+    <meta name="description" content="BlocentraAI is revolutionizing Bitcoin security with AI-powered insurance, risk intelligence, and yield activation for the Bitcoin economy.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1A73E8;
+            --primary-dark: #0d47a1;
+            --secondary: #FF6D00;
+            --dark: #121212;
+            --dark-gray: #1E1E1E;
+            --medium-gray: #2D2D2D;
+            --light-gray: #F5F5F5;
+            --white: #FFFFFF;
+            --success: #00C853;
+            --warning: #FFAB00;
+            --danger: #D32F2F;
+            --font-main: 'Inter', sans-serif;
+            --font-heading: 'Space Grotesk', sans-serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-main);
+            color: var(--dark);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        h1 {
+            font-size: 3rem;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+        }
+        
+        h3 {
+            font-size: 1.75rem;
+        }
+        
+        p {
+            margin-bottom: 1.25rem;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--primary-dark);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            color: var(--white);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+        }
+        
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--dark);
+            font-family: var(--font-heading);
+        }
+        
+        .logo span {
+            color: var(--primary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--dark);
+            font-weight: 500;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            padding: 10rem 0 5rem;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto 2.5rem;
+            color: var(--medium-gray);
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+        
+        .hero-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            margin-top: 3rem;
+        }
+        
+        /* Features Section */
+        .features {
+            background-color: var(--light-gray);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Problem/Solution Section */
+        .problem-solution {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        @media (max-width: 768px) {
+            .problem-solution {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .problem-box, .solution-box {
+            padding: 2rem;
+            border-radius: 8px;
+        }
+        
+        .problem-box {
+            background-color: #FFF8E1;
+            border-left: 4px solid var(--warning);
+        }
+        
+        .solution-box {
+            background-color: #E8F5E9;
+            border-left: 4px solid var(--success);
+        }
+        
+        /* Business Model Section */
+        .business-model {
+            background-color: var(--light-gray);
+        }
+        
+        .revenue-streams {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .revenue-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .revenue-card h4 {
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+        }
+        
+        /* Team Section */
+        .team-members {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .team-card {
+            text-align: center;
+        }
+        
+        .team-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1rem;
+            border: 3px solid var(--primary);
+        }
+        
+        /* Financials Section */
+        .financials {
+            background-color: var(--light-gray);
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+        }
+        
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 4rem 0;
+        }
+        
+        .cta h2 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .cta .btn {
+            background-color: var(--white);
+            color: var(--primary);
+        }
+        
+        .cta .btn:hover {
+            background-color: var(--light-gray);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-column h4 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+        }
+        
+        .footer-links a:hover {
+            color: var(--white);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            color: var(--white);
+            font-size: 1.25rem;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--medium-gray);
+            color: #aaa;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.75rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem 0;
+                transition: left 0.3s ease;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 1rem 0;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero-buttons .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.75rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+        }
+    </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans">
-
-  <!-- Header / Navigation -->
-  <header class="bg-primary text-white sticky top-0 z-50 shadow">
-    <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-      <h1 class="text-2xl font-bold">BlocentraAI</h1>
-      <nav class="space-x-6 text-sm">
-        <a href="#mission" class="hover:text-accent">Mission</a>
-        <a href="#solution" class="hover:text-accent">Solution</a>
-        <a href="#features" class="hover:text-accent">Features</a>
-        <a href="#about" class="hover:text-accent">About</a>
-        <a href="#roadmap" class="hover:text-accent">Roadmap</a>
-        <a href="#tech" class="hover:text-accent">Technology</a>
-        <a href="#faqs" class="hover:text-accent">FAQs</a>
-        <a href="#contact" class="hover:text-accent">Contact</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="max-w-5xl mx-auto px-6 py-12">
-
-    <!-- 1. Mission -->
-    <section id="mission" class="my-16">
-      <h2 class="text-4xl font-bold mb-4 text-primary">Our Mission</h2>
-      <p class="text-lg text-gray-700 leading-relaxed max-w-3xl">
-        To revolutionize Bitcoin security by combining cutting-edge AI with blockchain expertise, enabling retail and institutional investors to protect and maximize the value of their BTC holdings.
-      </p>
-    </section>
-
-    <!-- 2. Solution -->
-    <section id="solution" class="my-16 bg-white p-8 rounded-lg shadow-md">
-      <h2 class="text-3xl font-bold mb-4 text-primary">Our Solution</h2>
-      <p class="text-gray-700 leading-relaxed max-w-4xl">
-        BlocentraAI offers an integrated risk intelligence and insurance platform powered by advanced AI fraud detection and smart contract analysis to provide secure, compliant, and user-friendly protection for Bitcoin assets.
-      </p>
-    </section>
-
-    <!-- 3. Features -->
-    <section id="features" class="my-16 bg-gray-50 p-8 rounded-lg shadow-md">
-      <h2 class="text-3xl font-bold mb-6 text-primary">Key Features</h2>
-      <ul class="list-disc list-inside text-gray-700 space-y-3 max-w-4xl">
-        <li>AI-powered real-time fraud detection and risk scoring</li>
-        <li>Comprehensive Bitcoin insurance tailored to user needs</li>
-        <li>Smart contract and blockchain transaction monitoring</li>
-        <li>User-friendly dashboards for retail and institutional clients</li>
-        <li>Regulatory compliance and transparent reporting tools</li>
-      </ul>
-    </section>
-
-    <!-- 4. About / Team -->
-    <section id="about" class="my-16 bg-white p-8 rounded-lg shadow-md">
-      <h2 class="text-3xl font-bold mb-6 text-primary">About Us</h2>
-      <p class="mb-8 text-gray-700 leading-relaxed max-w-3xl">
-        BlocentraAI is founded by a passionate team of blockchain and AI experts dedicated to securing Bitcoin through cutting-edge risk intelligence and insurance technology.
-      </p>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="text-center">
-          <img src="assets/founder1.jpg" alt="Alice Smith" class="mx-auto rounded-full w-32 h-32 object-cover mb-4" />
-          <h3 class="font-semibold text-xl">Alice Smith</h3>
-          <p class="text-sm text-gray-500">CEO & Blockchain Expert</p>
-          <a href="https://linkedin.com/in/alicesmith" target="_blank" class="text-accent hover:underline text-sm">LinkedIn</a>
+<body>
+    <!-- Header/Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">Blocentra<span>AI</span></a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#solution">Solution</a></li>
+                    <li><a href="#market">Market</a></li>
+                    <li><a href="#business-model">Business Model</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#financials">Financials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-        <div class="text-center">
-          <img src="assets/founder2.jpg" alt="Bob Johnson" class="mx-auto rounded-full w-32 h-32 object-cover mb-4" />
-          <h3 class="font-semibold text-xl">Bob Johnson</h3>
-          <p class="text-sm text-gray-500">CTO & AI Specialist</p>
-          <a href="https://linkedin.com/in/bobjohnson" target="_blank" class="text-accent hover:underline text-sm">LinkedIn</a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>AI-Powered Bitcoin Insurance & Risk Intelligence</h1>
+            <p>BlocentraAI is revolutionizing Bitcoin security with institutional-grade protection, predictive risk analytics, and yield activation for the decentralized economy.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Investor Inquiry</a>
+                <a href="#solution" class="btn btn-outline">Learn More</a>
+            </div>
+            <img src="https://images.unsplash.com/photo-1639762681057-408e52192e55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2232&q=80" alt="Bitcoin security concept" class="hero-image">
         </div>
-        <div class="text-center">
-          <img src="assets/founder3.jpg" alt="Carol Lee" class="mx-auto rounded-full w-32 h-32 object-cover mb-4" />
-          <h3 class="font-semibold text-xl">Carol Lee</h3>
-          <p class="text-sm text-gray-500">Head of Product</p>
-          <a href="https://linkedin.com/in/carollee" target="_blank" class="text-accent hover:underline text-sm">LinkedIn</a>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section features" id="solution">
+        <div class="container">
+            <div class="section-title">
+                <h2>Bitcoin's Missing Infrastructure</h2>
+                <p>BlocentraAI bridges the critical gap between Bitcoin's decentralized nature and the risk management demands of modern finance</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>AI-Powered Insurance</h3>
+                    <p>Dynamic, behavior-driven policies covering wallet hacks, smart contract failures, and bridge vulnerabilities with automated claims processing.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Risk Intelligence Engine</h3>
+                    <p>Real-time wallet scoring, transaction anomaly detection, and predictive analytics for Bitcoin's unique architecture.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <h3>Yield Activation</h3>
+                    <p>AI-vetted lending pools and BTCFi integrations that allow users to earn yield on idle Bitcoin without compromising security.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Institutional Tools</h3>
+                    <p>Compliance-ready dashboards, automated underwriting, and API integrations for exchanges, custodians, and asset managers.</p>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
-    <!-- 5. Roadmap -->
-    <section id="roadmap" class="my-16 bg-gray-50 p-8 rounded-lg shadow-md">
-      <h2 class="text-3xl font-bold mb-6 text-primary">Roadmap & Milestones</h2>
-      <ol class="list-decimal list-inside space-y-4 text-gray-700 max-w-4xl">
-        <li><strong>Q3 2025:</strong> MVP launch with core BTC risk scoring engine and insurance dashboard.</li>
-        <li><strong>Q4 2025:</strong> Pilot onboarding of retail users and wallet partners across Europe.</li>
-        <li><strong>Q1 2026:</strong> Expand AI fraud detection with blockchain smart contract analysis.</li>
-        <li><strong>Mid 2026:</strong> Integrate institutional features for exchanges and custodians.</li>
-        <li><strong>Late 2026:</strong> Seek Series A funding and begin US market expansion.</li>
-      </ol>
+    <!-- Problem/Solution Section -->
+    <section class="section">
+        <div class="container">
+            <div class="problem-solution">
+                <div class="problem-box">
+                    <h3>The Problem</h3>
+                    <p>Despite Bitcoin's $1.2T+ market cap, critical infrastructure gaps remain:</p>
+                    <ul>
+                        <li>99% of Bitcoin sits idle with no protection or yield</li>
+                        <li>No native insurance standard for wallets or transactions</li>
+                        <li>Retail users lack security tools, institutions face compliance hurdles</li>
+                        <li>Existing solutions are Ethereum-centric or custodial</li>
+                        <li>Risk management is reactive rather than predictive</li>
+                    </ul>
+                </div>
+                <div class="solution-box">
+                    <h3>Our Solution</h3>
+                    <p>BlocentraAI delivers Bitcoin-native risk infrastructure:</p>
+                    <ul>
+                        <li>AI-driven behavioral analysis & automated underwriting</li>
+                        <li>Non-custodial design preserving user ownership</li>
+                        <li>Modular API platform for seamless integration</li>
+                        <li>Predictive models for systemic risk forecasting</li>
+                        <li>Compliance tools for institutional adoption</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- 6. Technology -->
-    <section id="tech" class="my-16 bg-white p-8 rounded-lg shadow-md">
-      <h2 class="text-3xl font-bold mb-6 text-primary">Technology Stack</h2>
-      <p class="mb-6 text-gray-700 leading-relaxed max-w-4xl">
-        BlocentraAI leverages state-of-the-art AI models for fraud detection, real-time blockchain data analysis, and secure smart contract auditing. Our platform is built with:
-      </p>
-      <ul class="list-disc list-inside text-gray-700 space-y-2 max-w-4xl">
-        <li>Python & TensorFlow for AI and machine learning models</li>
-        <li>Solidity for smart contract security analysis</li>
-        <li>REST APIs and Web3.js for blockchain integration</li>
-        <li>React & Tailwind CSS for a responsive, modern frontend</li>
-        <li>Secure AWS infrastructure with encrypted data storage</li>
-      </ul>
+    <!-- Market Opportunity Section -->
+    <section class="section" id="market">
+        <div class="container">
+            <div class="section-title">
+                <h2>Market Opportunity</h2>
+                <p>Positioned at the intersection of three explosive growth sectors</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>$40B+</h3>
+                    <p>Crypto insurance market by 2030 (currently underserved for Bitcoin)</p>
+                </div>
+                <div class="feature-card">
+                    <h3>$25B+</h3>
+                    <p>Idle Bitcoin projected to enter lending/yield markets by 2026</p>
+                </div>
+                <div class="feature-card">
+                    <h3>99%</h3>
+                    <p>Of Bitcoin currently unprotected and financially inactive</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- 7. FAQs -->
-    <section id="faqs" class="my-16 bg-gray-50 p-8 rounded-lg shadow-md max-w-4xl mx-auto">
-      <h2 class="text-3xl font-bold mb-6 text-primary">Frequently Asked Questions</h2>
-      <div class="space-y-6 text-gray-700 leading-relaxed">
-        <details class="border rounded p-4">
-          <summary class="font-semibold cursor-pointer">How does BlocentraAI protect Bitcoin holders?</summary>
-          <p class="mt-2">We use advanced AI to detect fraudulent activity and provide insurance solutions that mitigate risks for BTC holders.</p>
-        </details>
-        <details class="border rounded p-4">
-          <summary class="font-semibold cursor-pointer">Is my data secure and private?</summary>
-          <p class="mt-2">Yes, we follow industry best practices, including encryption and compliance with GDPR and other regulations.</p>
-        </details>
-        <details class="border rounded p-4">
-          <summary class="font-semibold cursor-pointer">What makes your solution different from competitors?</summary>
-          <p class="mt-2">Our unique blend of AI-powered fraud detection combined with risk intelligence tailored specifically for Bitcoin holders and institutional partners.</p>
-        </details>
-      </div>
+    <!-- Business Model Section -->
+    <section class="section business-model" id="business-model">
+        <div class="container">
+            <div class="section-title">
+                <h2>Revenue Streams</h2>
+                <p>Multiple high-margin monetization pathways across the Bitcoin value chain</p>
+            </div>
+            <div class="revenue-streams">
+                <div class="revenue-card">
+                    <h4>Insurance Premiums</h4>
+                    <p>1.5-3% of protected BTC value annually, dynamically priced by AI based on risk profile.</p>
+                </div>
+                <div class="revenue-card">
+                    <h4>SaaS Subscriptions</h4>
+                    <p>Tiered institutional plans for risk analytics, compliance dashboards, and API access.</p>
+                </div>
+                <div class="revenue-card">
+                    <h4>API Licensing</h4>
+                    <p>Enterprise pricing for wallets, exchanges, and protocols integrating our risk intelligence.</p>
+                </div>
+                <div class="revenue-card">
+                    <h4>Yield Revenue Share</h4>
+                    <p>Percentage of returns generated from AI-managed BTC lending pools and vaults.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- 8. Contact -->
-    <section id="contact" class="my-16 bg-white p-8 rounded-lg shadow-md max-w-4xl mx-auto">
-      <h2 class="text-3xl font-bold mb-6 text-primary">Contact Us</h2>
-      <p class="mb-6 text-gray-700">Have questions or want to collaborate? Reach out to us!</p>
-      <form action="https://formspree.io/f/your-form-id" method="POST" class="space-y-4">
-        <label class="block">
-          <span class="text-gray-700 font-semibold">Name</span>
-          <input type="text" name="name" required class="mt-1 block w-full rounded border border-gray-300 p-2" />
-        </label>
-        <label class="block">
-          <span class="text-gray-700 font-semibold">Email</span>
-          <input type="email" name="_replyto" required class="mt-1 block w-full rounded border border-gray-300 p-2" />
-        </label>
-        <label class="block">
-          <span class="text-gray-700 font-semibold">Message</span>
-          <textarea name="message" required rows="4" class="mt-1 block w-full rounded border border-gray-300 p-2"></textarea>
-        </label>
-        <button type="submit" class="bg-accent text-white px-6 py-3 rounded hover:bg-blue-700 transition">Send Message</button>
-      </form>
+    <!-- Team Section -->
+    <section class="section" id="team">
+        <div class="container">
+            <div class="section-title">
+                <h2>Founding Team</h2>
+                <p>Seasoned experts in blockchain security, AI, and financial risk management</p>
+            </div>
+            <div class="team-members">
+                <div class="team-card">
+                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" alt="Riek Gatluak Geka" class="team-photo">
+                    <h4>Riek Gatluak Geka</h4>
+                    <p>Founder & CEO</p>
+                    <p>Crypto security expert, DeFi innovator, and AI strategist with 8+ years in blockchain infrastructure.</p>
+                </div>
+                <div class="team-card">
+                    <div class="team-photo" style="background-color: #f0f0f0; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-user-plus" style="font-size: 3rem; color: #ccc;"></i>
+                    </div>
+                    <h4>Core Team</h4>
+                    <p>Post-funding hires will include:</p>
+                    <ul style="text-align: left; padding-left: 1.5rem;">
+                        <li>AI/ML Engineers</li>
+                        <li>Blockchain Developers</li>
+                        <li>Actuarial Scientists</li>
+                        <li>Compliance Officers</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- 9. Press & Testimonials -->
-    <section id="press" class="my-16 bg-gray-50 p-8 rounded-lg shadow-md max-w-4xl mx-auto">
-      <h2 class="text-3xl font-bold mb-6 text-primary">Press & Testimonials</h2>
-      <div class="space-y-6 text-gray-700">
-        <blockquote class="border-l-4 border-accent pl-4 italic">
-          "BlocentraAI is revolutionizing Bitcoin security with cutting-edge AI — a game changer for the crypto industry."
-          <footer class="mt-2 font-semibold">TechCrunch</footer>
-        </blockquote>
-        <blockquote class="border-l-4 border-accent pl-4 italic">
-          "We trust BlocentraAI to protect our assets. Their risk scoring is both accurate and fast."
-          <footer class="mt-2 font-semibold">Jane Doe, BTCFi Protocol Founder</footer>
-        </blockquote>
-      </div>
+    <!-- Financials Section -->
+    <section class="section financials" id="financials">
+        <div class="container">
+            <div class="section-title">
+                <h2>5-Year Projections</h2>
+                <p>Exponential growth trajectory as Bitcoin risk infrastructure becomes essential</p>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Year</th>
+                        <th>BTC Protected</th>
+                        <th>Market Share</th>
+                        <th>Revenue</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Year 1</td>
+                        <td>$400M</td>
+                        <td>0.03%</td>
+                        <td>$4.6M</td>
+                    </tr>
+                    <tr>
+                        <td>Year 2</td>
+                        <td>$1.6B</td>
+                        <td>0.15%</td>
+                        <td>$20.9M</td>
+                    </tr>
+                    <tr>
+                        <td>Year 3</td>
+                        <td>$4.5B</td>
+                        <td>0.55%</td>
+                        <td>$76.1M</td>
+                    </tr>
+                    <tr>
+                        <td>Year 4</td>
+                        <td>$12B</td>
+                        <td>1.2%</td>
+                        <td>$184M</td>
+                    </tr>
+                    <tr>
+                        <td>Year 5</td>
+                        <td>$27B</td>
+                        <td>2.5%</td>
+                        <td>$430M</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </section>
 
-    <!-- 10. Social Links -->
-    <section id="social" class="my-16 text-center max-w-4xl mx-auto">
-      <h2 class="text-2xl font-bold mb-4 text-primary">Connect with Us</h2>
-      <div class="flex justify-center space-x-6 text-gray-600 text-3xl">
-        <a href="https://twitter.com/YourHandle" target="_blank" aria-label="Twitter" class="hover:text-accent">🐦</a>
-        <a href="https://linkedin.com/company/YourCompany" target="_blank" aria-label="LinkedIn" class="hover:text-accent">🔗</a>
-        <a href="https://t.me/YourTelegram" target="_blank" aria-label="Telegram" class="hover:text-accent">✈️</a>
-        <a href="https://github.com/YourRepo" target="_blank" aria-label="GitHub" class="hover:text-accent">🐙</a>
-      </div>
+    <!-- Funding Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Funding Needs</h2>
+                <p>$7M pre-seed to establish Bitcoin's essential risk infrastructure layer</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h4>Product Development</h4>
+                    <p>Finalize MVP with AI scoring engine, insurance contracts, and wallet integrations.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Team Expansion</h4>
+                    <p>Hire AI/ML engineers, blockchain developers, and insurance specialists.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Regulatory Setup</h4>
+                    <p>Secure crypto insurance frameworks under EU/Estionian regulations.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Go-To-Market</h4>
+                    <p>Launch in 3 regions with targeted partnerships and marketing.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- 11. Security & Compliance -->
-    <section id="security" class="my-16 bg-white p-8 rounded-lg shadow-md max-w-4xl mx-auto">
-      <h2 class="text-3xl font-bold mb-6 text-primary">Security & Compliance</h2>
-      <p class="text-gray-700 mb-4 leading-relaxed">
-        At BlocentraAI, security and compliance are our top priorities. We implement:
-      </p>
-      <ul class="list-disc list-inside text-gray-700 space-y-2">
-        <li>End-to-end encryption for all data and communications</li>
-        <li>Compliance with GDPR, KYC, and AML regulations</li>
-        <li>Regular security audits and penetration testing</li>
-        <li>Strict access controls and multi-factor authentication</li>
-      </ul>
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Invest in Bitcoin's Future?</h2>
+            <p>BlocentraAI is positioned to become the essential trust layer for the Bitcoin economy. Join our mission to make Bitcoin safe, insurable, and productive for the world.</p>
+            <a href="#contact" class="btn btn-primary">Contact Our Team</a>
+        </div>
     </section>
 
-    <!-- 12. Calls to Action -->
-    <section class="my-16 text-center max-w-4xl mx-auto">
-      <a href="#contact" class="inline-block bg-accent text-white px-8 py-4 rounded font-semibold hover:bg-blue-700 transition mx-2">
-        Contact Us
-      </a>
-      <a href="#roadmap" class="inline-block border border-accent text-accent px-8 py-4 rounded font-semibold hover:bg-accent hover:text-white transition mx-2">
-        View Roadmap
-      </a>
-      <a href="#about" class="inline-block border border-gray-400 text-gray-600 px-8 py-4 rounded font-semibold hover:bg-gray-200 transition mx-2">
-        Meet the Team
-      </a>
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch for investor materials, partnership opportunities, or media inquiries</p>
+            </div>
+            <div style="max-width: 600px; margin: 0 auto;">
+                <div style="margin-bottom: 2rem;">
+                    <h4>Founder & CEO</h4>
+                    <p>Riek Gatluak Geka</p>
+                    <p><i class="fas fa-envelope"></i> riekgatluak25@gmail.com</p>
+                    <p><i class="fab fa-whatsapp"></i> +211 981 211 736</p>
+                </div>
+                <div>
+                    <h4>Headquarters (Pending)</h4>
+                    <p>Estonia e-Residency Program</p>
+                    <p>Currently operating from South Sudan</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-  </main>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>BlocentraAI</h4>
+                    <p>AI-powered Bitcoin insurance and risk intelligence infrastructure for the decentralized economy.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Product</h4>
+                    <ul class="footer-links">
+                        <li><a href="#solution">Features</a></li>
+                        <li><a href="#business-model">Pricing</a></li>
+                        <li><a href="#">API Documentation</a></li>
+                        <li><a href="#">Roadmap</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#team">About Us</a></li>
+                        <li><a href="#contact">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#contact">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Compliance</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 BlocentraAI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-  <!-- 13. Footer & Notes -->
-  <footer class="bg-primary text-white text-center py-6">
-    <p>&copy; 2025 BlocentraAI. All rights reserved.</p>
-  </footer>
-
-  <!--
-  Performance & Repo Notes:
-  - Compress images before uploading (e.g. TinyPNG)
-  - Minify CSS/JS for faster loads
-  - Use meaningful git commit messages (e.g. "Add About section")
-  - Include LICENSE file in your repo (MIT, Apache 2.0, etc.)
-  - Add README.md with project overview, live demo link, contact info
-  -->
-
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                }
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
