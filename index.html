@@ -8,7 +8,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* RESET & GLOBAL STYLES */
         :root {
             --space-1: 0.25rem;
             --space-2: 0.5rem;
@@ -21,7 +20,7 @@
             --space-24: 6rem;
             --space-32: 8rem;
             
-            --color-primary: #10B981; /* Green */
+            --color-primary: #10B981;
             --color-primary-dark: #059669;
             --color-black: #111827;
             --color-black-light: #374151;
@@ -48,10 +47,11 @@
             color: var(--color-black);
             background: var(--color-white);
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
         
         .container {
-            width: 90%;
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 var(--space-4);
@@ -132,7 +132,6 @@
             line-height: 1.7;
         }
         
-        /* HEADER STYLES */
         header {
             position: fixed;
             top: 0;
@@ -183,7 +182,6 @@
             transform: scaleX(1);
         }
         
-        /* Mobile menu toggle */
         .menu-toggle {
             display: none;
             background: none;
@@ -237,7 +235,6 @@
             transform: scaleX(1);
         }
         
-        /* Mobile nav styles */
         @media (max-width: 992px) {
             .menu-toggle {
                 display: block;
@@ -361,7 +358,6 @@
             left: 100%;
         }
         
-        /* HERO SECTION */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -427,7 +423,6 @@
             display: block;
         }
         
-        /* CARD STYLES */
         .card {
             background: var(--color-white);
             border: 1px solid var(--color-gray-dark);
@@ -444,12 +439,10 @@
             border-color: rgba(16, 185, 129, 0.2);
         }
         
-        /* SECTION 2 - LIGHT BACKGROUND */
         .section-light {
             background: var(--color-gray);
         }
         
-        /* PROBLEM & SOLUTION */
         .problem-solution {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -468,7 +461,6 @@
             border-top: 4px solid var(--color-primary-dark);
         }
         
-        /* FEATURES */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -494,7 +486,6 @@
             border-radius: 50%;
         }
         
-        /* CUSTOMERS */
         .customers-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -506,7 +497,6 @@
             border-left: 4px solid var(--color-primary);
         }
         
-        /* MARKET OPPORTUNITY */
         .market-stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -529,7 +519,6 @@
             -webkit-text-fill-color: transparent;
         }
         
-        /* ROADMAP */
         .roadmap-timeline {
             position: relative;
             max-width: 1000px;
@@ -587,7 +576,6 @@
             padding: var(--space-6);
         }
         
-        /* NEWS SECTION */
         .news-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -605,7 +593,6 @@
             font-weight: 500;
         }
         
-        /* FAQ SECTION */
         .faq-item {
             margin-bottom: var(--space-4);
             padding: var(--space-6);
@@ -640,7 +627,6 @@
             padding-top: var(--space-2);
         }
         
-        /* TEAM */
         .team-member {
             text-align: center;
             max-width: 600px;
@@ -654,7 +640,6 @@
             color: var(--color-primary);
         }
         
-        /* BUSINESS MODEL */
         .model-cards {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -666,7 +651,6 @@
             border-top: 4px solid var(--color-primary);
         }
         
-        /* CONTACT FORM */
         .contact-form {
             max-width: 600px;
             margin: 0 auto;
@@ -748,7 +732,6 @@
             left: 100%;
         }
         
-        /* LEGAL NOTE */
         .legal-note {
             background: var(--color-white);
             padding: var(--space-6);
@@ -757,7 +740,6 @@
             border: 1px solid var(--color-gray-dark);
         }
         
-        /* FOOTER */
         footer {
             background: var(--color-black);
             color: var(--color-white);
@@ -831,7 +813,6 @@
             font-weight: 600;
         }
         
-        /* RESPONSIVE ADJUSTMENTS */
         @media (max-width: 992px) {
             .problem-solution {
                 grid-template-columns: 1fr;
@@ -879,11 +860,60 @@
             h1 {
                 margin-top: var(--space-8);
             }
+            
+            section {
+                padding: var(--space-16) 0;
+            }
+            
+            .hero {
+                padding-top: var(--space-24);
+                padding-bottom: var(--space-16);
+            }
+            
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .features-grid, .customers-grid, .model-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 var(--space-2);
+            }
+            
+            h1 {
+                font-size: 2rem;
+                margin-top: var(--space-6);
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+                margin-bottom: var(--space-8);
+            }
+            
+            p, li {
+                font-size: 1rem;
+            }
+            
+            .btn {
+                min-width: 100%;
+                padding: var(--space-3) var(--space-4);
+            }
+            
+            .hero-image-container {
+                margin-top: var(--space-6);
+            }
+            
+            .roadmap-content {
+                padding: var(--space-4);
+            }
         }
     </style>
 </head>
 <body>
-    <!-- HEADER -->
     <header>
         <div class="container header-container">
             <div class="logo">Blocentra<span>AI</span></div>
@@ -908,7 +938,6 @@
         </div>
     </header>
 
-    <!-- HERO SECTION -->
     <section class="hero">
         <div class="container">
             <h1>AI-POWERED BITCOIN INSURANCE & RISK INTELLIGENCE</h1>
@@ -925,7 +954,6 @@
         </div>
     </section>
 
-    <!-- PROBLEM & SOLUTION -->
     <section id="problem-solution" class="section-light">
         <div class="container">
             <h2>Problem & Solution</h2>
@@ -958,7 +986,6 @@
         </div>
     </section>
 
-    <!-- FEATURES -->
     <section id="features" class="section-light">
         <div class="container">
             <h2>Key features</h2>
@@ -1003,7 +1030,6 @@
         </div>
     </section>
 
-    <!-- TARGET CUSTOMERS -->
     <section id="customers" class="section-light">
         <div class="container">
             <h2>Target customers</h2>
@@ -1040,7 +1066,6 @@
         </div>
     </section>
 
-    <!-- MARKET OPPORTUNITY -->
     <section id="market" class="section-light">
         <div class="container">
             <h2>Market opportunity</h2>
@@ -1072,7 +1097,6 @@
         </div>
     </section>
 
-    <!-- ROADMAP -->
     <section id="roadmap" class="section-light">
         <div class="container">
             <h2>Roadmap</h2>
@@ -1104,7 +1128,7 @@
                         <h3>Year 2 Q3 - Year 3 Q2</h3>
                         <ul>
                             <li>Expand to EU. and Canada through institutional partnerships</li>
-                            <li>Establish B2G pilots in EU Countries, Saudi Arabia</li>
+                            <li>Establish B2B pilots in EU Countries, Saudi Arabia</li>
                             <li>Add Local-language compliance dashboards</li>
                             <li>Target mobile-first wallets with integrated BTC insurance</li>
                         </ul>
@@ -1134,7 +1158,6 @@
         </div>
     </section>
 
-    <!-- NEWS SECTION -->
     <section id="news" class="section-light">
         <div class="container">
             <h2>Latest news</h2>
@@ -1149,7 +1172,6 @@
         </div>
     </section>
 
-    <!-- FAQ SECTION -->
     <section id="faq" class="section-light">
         <div class="container">
             <h2>Frequently asked questions</h2>
@@ -1186,7 +1208,6 @@
         </div>
     </section>
 
-    <!-- TEAM -->
     <section id="team" class="section-light">
         <div class="container">
             <h2>Founder & team</h2>
@@ -1241,7 +1262,6 @@
         </div>
     </section>
 
-    <!-- BUSINESS MODEL -->
     <section id="model" class="section-light">
         <div class="container">
             <h2>Business model</h2>
@@ -1298,7 +1318,6 @@
         </div>
     </section>
 
-    <!-- CONTACT FORM -->
     <section id="contact" class="section-light">
         <div class="container">
             <h2>Contact us</h2>
@@ -1338,7 +1357,6 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -1377,7 +1395,6 @@
     </footer>
 
     <script>
-        // Mobile menu toggle functionality
         const menuToggle = document.getElementById('menuToggle');
         const closeMenu = document.getElementById('closeMenu');
         const mainNav = document.getElementById('mainNav');
@@ -1392,7 +1409,6 @@
             document.body.style.overflow = '';
         });
         
-        // Close menu when clicking on a nav link
         document.querySelectorAll('nav a').forEach(link => {
             link.addEventListener('click', () => {
                 mainNav.classList.remove('active');
@@ -1400,19 +1416,16 @@
             });
         });
 
-        // Simple FAQ toggle functionality
         document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', () => {
                 const answer = question.nextElementSibling;
                 const isOpen = question.classList.contains('active');
                 
-                // Close all answers first
                 document.querySelectorAll('.faq-question').forEach(q => {
                     q.classList.remove('active');
                     q.nextElementSibling.style.display = 'none';
                 });
                 
-                // Toggle current answer
                 if (!isOpen) {
                     question.classList.add('active');
                     answer.style.display = 'block';
@@ -1420,7 +1433,6 @@
             });
         });
 
-        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -1438,7 +1450,6 @@
             });
         });
 
-        // Add scroll animation to elements
         const animateOnScroll = () => {
             const elements = document.querySelectorAll('.card, h2, h3, p, li');
             
@@ -1453,14 +1464,12 @@
             });
         };
 
-        // Set initial state for animation
         document.querySelectorAll('.card, h2, h3, p, li').forEach(element => {
             element.style.opacity = '0';
             element.style.transform = 'translateY(20px)';
             element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         });
 
-        // Run on load and scroll
         window.addEventListener('load', animateOnScroll);
         window.addEventListener('scroll', animateOnScroll);
     </script>
