@@ -7,8 +7,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
+        /* ================ */
+        /* ROOT VARIABLES */
+        /* ================ */
         :root {
+            /* Spacing */
             --space-1: 0.25rem;
             --space-2: 0.5rem;
             --space-4: 1rem;
@@ -20,6 +25,7 @@
             --space-24: 6rem;
             --space-32: 8rem;
             
+            /* Colors */
             --color-primary: #10B981;
             --color-primary-dark: #059669;
             --color-black: #111827;
@@ -28,13 +34,17 @@
             --color-gray: #F3F4F6;
             --color-gray-dark: #E5E7EB;
             
+            /* Effects */
             --border-radius: 8px;
             --border-radius-lg: 12px;
             --box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
             --box-shadow-hover: 0 12px 48px rgba(16, 185, 129, 0.1);
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
+
+        /* ========== */
+        /* BASE STYLES */
+        /* ========== */
         * {
             margin: 0;
             padding: 0;
@@ -73,6 +83,9 @@
             background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.1), transparent);
         }
         
+        /* ============ */
+        /* TYPOGRAPHY */
+        /* ============ */
         h1, h2, h3, h4 {
             font-weight: 700;
             line-height: 1.2;
@@ -132,6 +145,9 @@
             line-height: 1.7;
         }
         
+        /* ========== */
+        /* HEADER */
+        /* ========== */
         header {
             position: fixed;
             top: 0;
@@ -182,6 +198,9 @@
             transform: scaleX(1);
         }
         
+        /* ========== */
+        /* NAVIGATION */
+        /* ========== */
         .menu-toggle {
             display: none;
             background: none;
@@ -235,50 +254,9 @@
             transform: scaleX(1);
         }
         
-        @media (max-width: 992px) {
-            .menu-toggle {
-                display: block;
-            }
-            
-            nav {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 80%;
-                max-width: 400px;
-                height: 100vh;
-                background: var(--color-white);
-                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-                padding: var(--space-16) var(--space-6) var(--space-6);
-                transition: var(--transition);
-                z-index: 1000;
-            }
-            
-            nav.active {
-                right: 0;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                gap: var(--space-4);
-            }
-            
-            nav ul li a {
-                font-size: 1.1rem;
-                padding: var(--space-3) 0;
-            }
-            
-            .close-menu {
-                position: absolute;
-                top: var(--space-4);
-                right: var(--space-4);
-                font-size: 1.5rem;
-                background: none;
-                border: none;
-                cursor: pointer;
-            }
-        }
-        
+        /* ========== */
+        /* BUTTONS */
+        /* ========== */
         .cta-buttons {
             display: flex;
             gap: var(--space-4);
@@ -358,6 +336,9 @@
             left: 100%;
         }
         
+        /* ========== */
+        /* HERO SECTION */
+        /* ========== */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -423,6 +404,9 @@
             display: block;
         }
         
+        /* ========== */
+        /* CARDS */
+        /* ========== */
         .card {
             background: var(--color-white);
             border: 1px solid var(--color-gray-dark);
@@ -439,10 +423,14 @@
             border-color: rgba(16, 185, 129, 0.2);
         }
         
+        /* ========== */
+        /* SECTIONS */
+        /* ========== */
         .section-light {
             background: var(--color-gray);
         }
         
+        /* Problem-Solution Section */
         .problem-solution {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -461,6 +449,7 @@
             border-top: 4px solid var(--color-primary-dark);
         }
         
+        /* Features Section */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -486,6 +475,7 @@
             border-radius: 50%;
         }
         
+        /* Customers Section */
         .customers-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -497,6 +487,7 @@
             border-left: 4px solid var(--color-primary);
         }
         
+        /* Market Stats */
         .market-stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -519,6 +510,7 @@
             -webkit-text-fill-color: transparent;
         }
         
+        /* Roadmap Section */
         .roadmap-timeline {
             position: relative;
             max-width: 1000px;
@@ -576,6 +568,7 @@
             padding: var(--space-6);
         }
         
+        /* News Section */
         .news-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -593,6 +586,7 @@
             font-weight: 500;
         }
         
+        /* FAQ Section */
         .faq-item {
             margin-bottom: var(--space-4);
             padding: var(--space-6);
@@ -627,6 +621,7 @@
             padding-top: var(--space-2);
         }
         
+        /* Team Section */
         .team-member {
             text-align: center;
             max-width: 600px;
@@ -640,6 +635,7 @@
             color: var(--color-primary);
         }
         
+        /* Business Model Section */
         .model-cards {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -651,6 +647,7 @@
             border-top: 4px solid var(--color-primary);
         }
         
+        /* Contact Section */
         .contact-form {
             max-width: 600px;
             margin: 0 auto;
@@ -740,6 +737,36 @@
             border: 1px solid var(--color-gray-dark);
         }
         
+        /* Thank You Message */
+        .thank-you-message {
+            display: none;
+            text-align: center;
+            padding: var(--space-8);
+            background: var(--color-white);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--box-shadow);
+            margin-top: var(--space-8);
+        }
+
+        .thank-you-message h3 {
+            color: var(--color-primary);
+            font-size: 2rem;
+            margin-bottom: var(--space-4);
+        }
+
+        .thank-you-message p {
+            color: var(--color-black-light);
+            font-size: 1.2rem;
+            margin-bottom: var(--space-4);
+        }
+
+        .thank-you-message .btn {
+            margin-top: var(--space-4);
+        }
+        
+        /* ========== */
+        /* FOOTER */
+        /* ========== */
         footer {
             background: var(--color-black);
             color: var(--color-white);
@@ -813,11 +840,61 @@
             font-weight: 600;
         }
         
+        /* ================ */
+        /* MEDIA QUERIES */
+        /* ================ */
         @media (max-width: 992px) {
+            /* Navigation */
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 400px;
+                height: 100vh;
+                background: var(--color-white);
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                padding: var(--space-16) var(--space-6) var(--space-6);
+                transition: var(--transition);
+                z-index: 1000;
+            }
+            
+            nav.active {
+                right: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: var(--space-4);
+            }
+            
+            nav ul li a {
+                font-size: 1.1rem;
+                padding: var(--space-3) 0;
+            }
+            
+            .close-menu {
+                position: absolute;
+                top: var(--space-4);
+                right: var(--space-4);
+                font-size: 1.5rem;
+                background: none;
+                border: none;
+                cursor: pointer;
+                color: var(--color-black);
+                z-index: 1001;
+            }
+            
+            /* Problem-Solution */
             .problem-solution {
                 grid-template-columns: 1fr;
             }
             
+            /* Roadmap */
             .roadmap-timeline::after {
                 left: 31px;
             }
@@ -842,12 +919,14 @@
         }
         
         @media (max-width: 768px) {
+            /* Header */
             .header-container {
                 flex-direction: row;
                 text-align: left;
                 gap: var(--space-4);
             }
             
+            /* Buttons */
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
@@ -857,14 +936,17 @@
                 width: 100%;
             }
             
+            /* Typography */
             h1 {
                 margin-top: var(--space-8);
             }
             
+            /* Sections */
             section {
                 padding: var(--space-16) 0;
             }
             
+            /* Hero */
             .hero {
                 padding-top: var(--space-24);
                 padding-bottom: var(--space-16);
@@ -874,16 +956,19 @@
                 font-size: 1.1rem;
             }
             
+            /* Grids */
             .features-grid, .customers-grid, .model-cards {
                 grid-template-columns: 1fr;
             }
         }
         
         @media (max-width: 480px) {
+            /* Container */
             .container {
                 padding: 0 var(--space-2);
             }
             
+            /* Typography */
             h1 {
                 font-size: 2rem;
                 margin-top: var(--space-6);
@@ -898,22 +983,27 @@
                 font-size: 1rem;
             }
             
+            /* Buttons */
             .btn {
                 min-width: 100%;
                 padding: var(--space-3) var(--space-4);
             }
             
+            /* Hero */
             .hero-image-container {
                 margin-top: var(--space-6);
             }
             
+            /* Roadmap */
             .roadmap-content {
                 padding: var(--space-4);
             }
         }
     </style>
 </head>
+
 <body>
+    <!-- Header Section -->
     <header>
         <div class="container header-container">
             <div class="logo">Blocentra<span>AI</span></div>
@@ -938,6 +1028,7 @@
         </div>
     </header>
 
+    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <h1>AI-POWERED BITCOIN INSURANCE & RISK INTELLIGENCE</h1>
@@ -954,6 +1045,7 @@
         </div>
     </section>
 
+    <!-- Problem & Solution Section -->
     <section id="problem-solution" class="section-light">
         <div class="container">
             <h2>Problem & Solution</h2>
@@ -986,6 +1078,7 @@
         </div>
     </section>
 
+    <!-- Features Section -->
     <section id="features" class="section-light">
         <div class="container">
             <h2>Key features</h2>
@@ -1030,6 +1123,7 @@
         </div>
     </section>
 
+    <!-- Customers Section -->
     <section id="customers" class="section-light">
         <div class="container">
             <h2>Target customers</h2>
@@ -1066,6 +1160,7 @@
         </div>
     </section>
 
+    <!-- Market Section -->
     <section id="market" class="section-light">
         <div class="container">
             <h2>Market opportunity</h2>
@@ -1097,6 +1192,7 @@
         </div>
     </section>
 
+    <!-- Roadmap Section -->
     <section id="roadmap" class="section-light">
         <div class="container">
             <h2>Roadmap</h2>
@@ -1158,6 +1254,7 @@
         </div>
     </section>
 
+    <!-- News Section -->
     <section id="news" class="section-light">
         <div class="container">
             <h2>Latest news</h2>
@@ -1172,6 +1269,7 @@
         </div>
     </section>
 
+    <!-- FAQ Section -->
     <section id="faq" class="section-light">
         <div class="container">
             <h2>Frequently asked questions</h2>
@@ -1208,6 +1306,7 @@
         </div>
     </section>
 
+    <!-- Team Section -->
     <section id="team" class="section-light">
         <div class="container">
             <h2>Founder & team</h2>
@@ -1262,6 +1361,7 @@
         </div>
     </section>
 
+    <!-- Business Model Section -->
     <section id="model" class="section-light">
         <div class="container">
             <h2>Business model</h2>
@@ -1318,11 +1418,12 @@
         </div>
     </section>
 
+    <!-- Contact Section -->
     <section id="contact" class="section-light">
         <div class="container">
             <h2>Contact us</h2>
             <div class="contact-form card">
-                <form action="https://formspree.io/f/xgvybepe" method="POST">
+                <form id="contactForm" action="https://formspree.io/f/xgvybepe" method="POST">
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" required>
@@ -1349,6 +1450,12 @@
                     <button type="submit">Send message</button>
                 </form>
             </div>
+
+            <div class="thank-you-message card" id="thankYouMessage">
+                <h3>Thank You!</h3>
+                <p>Your message has been successfully sent. Our team will get back to you shortly.</p>
+                <a href="#" class="btn btn-primary">Back to Home</a>
+            </div>
             
             <div class="legal-note card">
                 <h3>Privacy & data protection</h3>
@@ -1357,6 +1464,7 @@
         </div>
     </section>
 
+    <!-- Footer Section -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -1382,19 +1490,21 @@
                 </div>
                 <div class="footer-section">
                     <h3>Legal</h3>
-                    <a href="#privacy">Privacy Policy</a>
-                    <a href="#terms">Terms of Service</a>
+                    <a href="https://riek27.github.io/blocentraai-legal/" target="_blank">Privacy Policy</a>
+                    <a href="https://riek27.github.io/blocentraai-legal/" target="_blank">Terms of Service</a>
                     <a href="#cookies">Cookie Policy</a>
                     <a href="#disclaimer">Disclaimer</a>
                 </div>
             </div>
-            <div class="copyright">
-                <p>&copy; <strong>2025 BlocentraAI</strong>. All rights reserved.</p>
+            <div class="copyright" style="color: #10B981;">
+                <p>&copy; <strong style="color: #10B981;">2025 BlocentraAI</strong>. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
+    <!-- JavaScript -->
     <script>
+        // Mobile Navigation Toggle
         const menuToggle = document.getElementById('menuToggle');
         const closeMenu = document.getElementById('closeMenu');
         const mainNav = document.getElementById('mainNav');
@@ -1416,6 +1526,7 @@
             });
         });
 
+        // FAQ Accordion
         document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', () => {
                 const answer = question.nextElementSibling;
@@ -1433,6 +1544,7 @@
             });
         });
 
+        // Smooth Scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -1450,6 +1562,7 @@
             });
         });
 
+        // Scroll Animations
         const animateOnScroll = () => {
             const elements = document.querySelectorAll('.card, h2, h3, p, li');
             
@@ -1464,6 +1577,7 @@
             });
         };
 
+        // Initialize Animation States
         document.querySelectorAll('.card, h2, h3, p, li').forEach(element => {
             element.style.opacity = '0';
             element.style.transform = 'translateY(20px)';
@@ -1472,6 +1586,37 @@
 
         window.addEventListener('load', animateOnScroll);
         window.addEventListener('scroll', animateOnScroll);
+
+        // Form Submission Handling
+        const contactForm = document.getElementById('contactForm');
+        const thankYouMessage = document.getElementById('thankYouMessage');
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    contactForm.style.display = 'none';
+                    thankYouMessage.style.display = 'block';
+                    contactForm.reset();
+                } else {
+                    throw new Error('Network response was not ok');
+                }
+            })
+            .catch(error => {
+                console.error('There was a problem with the form submission:', error);
+                alert('There was a problem submitting your form. Please try again.');
+            });
+        });
     </script>
 </body>
 </html>
