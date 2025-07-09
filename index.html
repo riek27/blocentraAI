@@ -183,6 +183,22 @@
             transform: scaleX(1);
         }
         
+        /* Mobile menu toggle */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--color-black);
+            cursor: pointer;
+            padding: var(--space-2);
+            z-index: 1001;
+        }
+        
+        nav {
+            transition: var(--transition);
+        }
+        
         nav ul {
             display: flex;
             list-style: none;
@@ -219,6 +235,51 @@
         nav ul li a:hover::after {
             transform-origin: left;
             transform: scaleX(1);
+        }
+        
+        /* Mobile nav styles */
+        @media (max-width: 992px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 400px;
+                height: 100vh;
+                background: var(--color-white);
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                padding: var(--space-16) var(--space-6) var(--space-6);
+                transition: var(--transition);
+                z-index: 1000;
+            }
+            
+            nav.active {
+                right: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: var(--space-4);
+            }
+            
+            nav ul li a {
+                font-size: 1.1rem;
+                padding: var(--space-3) 0;
+            }
+            
+            .close-menu {
+                position: absolute;
+                top: var(--space-4);
+                right: var(--space-4);
+                font-size: 1.5rem;
+                background: none;
+                border: none;
+                cursor: pointer;
+            }
         }
         
         .cta-buttons {
@@ -771,28 +832,7 @@
         }
         
         /* RESPONSIVE ADJUSTMENTS */
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                text-align: center;
-                gap: var(--space-4);
-            }
-            
-            nav ul {
-                margin-top: var(--space-4);
-                justify-content: center;
-                flex-wrap: wrap;
-                gap: var(--space-4);
-            }
-            
-            .hero h1 {
-                text-align: center;
-            }
-            
-            .hero .subtitle {
-                text-align: center;
-            }
-            
+        @media (max-width: 992px) {
             .problem-solution {
                 grid-template-columns: 1fr;
             }
@@ -818,6 +858,14 @@
             .right {
                 left: 0;
             }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: row;
+                text-align: left;
+                gap: var(--space-4);
+            }
             
             .cta-buttons {
                 flex-direction: column;
@@ -827,6 +875,10 @@
             .btn {
                 width: 100%;
             }
+            
+            h1 {
+                margin-top: var(--space-8);
+            }
         }
     </style>
 </head>
@@ -835,7 +887,11 @@
     <header>
         <div class="container header-container">
             <div class="logo">Blocentra<span>AI</span></div>
-            <nav>
+            
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            
+            <nav id="mainNav">
+                <button class="close-menu" id="closeMenu">×</button>
                 <ul>
                     <li><a href="#problem-solution">Problem & Solution</a></li>
                     <li><a href="#features">Features</a></li>
@@ -1007,7 +1063,7 @@
             
             <h3>Key market verticals</h3>
             <ul>
-                <li><strong>Crypto insurance market:</strong> Currently estimated at several billion dollars and projected to exceed $40 billion by 2030.</li>
+                <li><strong>Crypto insurance market:</strong> Currently estimated at several billion dollars and projected to exceed $70 billion by 2030.</li>
                 <li><strong>Bitcoin financialization (BTCFi):</strong> With over $25 billion in idle Bitcoin projected to participate in lending and insurance pools by 2026.</li>
                 <li><strong>Institutional adoption & compliance:</strong> Demand for transparent, compliant risk management tools is skyrocketing as institutions allocate to Bitcoin.</li>
                 <li><strong>Retail market growth:</strong> Democratization of Bitcoin ownership drives sustained growth in wallets requiring accessible protection.</li>
@@ -1025,9 +1081,8 @@
                     <div class="roadmap-content card">
                         <h3>Year 1 Q1-Q3</h3>
                         <ul>
-                            <li>Launch from Estonia using e-Residency</li>
-                            <li>Onboard beta testers in Baltics</li>
-                            <li>Finalize regulatory structure</li>
+                            <li>Launch in US</li>
+                            <li>Onboard beta testers </li>
                             <li>Test insurance and wallet integration MVP</li>
                         </ul>
                     </div>
@@ -1036,10 +1091,10 @@
                     <div class="roadmap-content card">
                         <h3>Year 1 Q4 - Year 2 Q2</h3>
                         <ul>
-                            <li>Enter Germany, France, Netherlands, Switzerland</li>
+                            <li>d</li>
                             <li>Launch partnerships with custodians, DeFi wallets</li>
-                            <li>Begin rollout in Singapore, Vietnam, India</li>
-                            <li>Localize compliance tools per region</li>
+                            <li>Begin rollout in Entire US</li>
+                            <li>form partnership</li>
                         </ul>
                     </div>
                 </div>
@@ -1047,9 +1102,7 @@
                     <div class="roadmap-content card">
                         <h3>Year 2 Q3 - Year 3 Q2</h3>
                         <ul>
-                            <li>Expand to U.S. and Canada through institutional partnerships</li>
-                            <li>Establish B2G pilots in UAE, Saudi Arabia</li>
-                            <li>Add Arabic-language compliance dashboards</li>
+                            <li>Expand to EU and Canada through institutional partnerships</li>
                             <li>Target mobile-first wallets with integrated BTC insurance</li>
                         </ul>
                     </div>
@@ -1084,7 +1137,7 @@
             <h2>Latest news</h2>
             <div class="news-grid">
                 <div class="news-card card">
-                    <div class="news-date">June 20, 2025</div>
+                    <div class="news-date">June 10, 2025</div>
                     <h3>MVP preview now available</h3>
                     <p>Our minimum viable product is now live for preview, showcasing the core risk scoring and insurance interface for Bitcoin holders.</p>
                     <a href="https://riek27.github.io/blocentraAIdemo/" target="_blank" class="btn btn-primary" style="margin-top: var(--space-4); display: inline-block;">View MVP</a>
@@ -1118,7 +1171,7 @@
             <div class="faq-item card">
                 <div class="faq-question">What regions do you currently operate in?</div>
                 <div class="faq-answer">
-                    <p>We're initially launching in Estonia and the broader EU, with planned expansion to North America, Asia, and Latin America as outlined in our roadmap.</p>
+                    <p>We're initially launching in US , with planned expansion to EU, Asia, and Latin America as outlined in our roadmap.</p>
                 </div>
             </div>
             <div class="faq-item card">
@@ -1302,9 +1355,9 @@
                 </div>
                 <div class="footer-section">
                     <h3>Contact</h3>
-                    <a href="mailto:riekgatluak25@gmail.com">Email: riekgatluak25@gmail.com</a>
+                    <a href="mailto:blocenraai@gmail.com">Email: blocentraai@gmail.com</a>
                     <a href="https://wa.me/211981211736">WhatsApp: +211 981 211 736</a>
-                    <p>Estonian HQ (Pending Registration)</p>
+                    <p>HQ wil be Deleware USA</p>
                 </div>
                 <div class="footer-section">
                     <h3>Legal</h3>
@@ -1321,6 +1374,29 @@
     </footer>
 
     <script>
+        // Mobile menu toggle functionality
+        const menuToggle = document.getElementById('menuToggle');
+        const closeMenu = document.getElementById('closeMenu');
+        const mainNav = document.getElementById('mainNav');
+        
+        menuToggle.addEventListener('click', () => {
+            mainNav.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeMenu.addEventListener('click', () => {
+            mainNav.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        
+        // Close menu when clicking on a nav link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
         // Simple FAQ toggle functionality
         document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', () => {
