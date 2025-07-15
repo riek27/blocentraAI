@@ -3,17 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BLOCENTRAAI - AI-POWERED BITCOIN INSURANCE & RISK INTELLIGENCE</title>
+    <title>BLOCENTRAAI - AI-Powered Bitcoin Insurance & Risk Intelligence</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* ================ */
-        /* ROOT VARIABLES */
-        /* ================ */
         :root {
-            /* Spacing */
             --space-1: 0.25rem;
             --space-2: 0.5rem;
             --space-4: 1rem;
@@ -25,26 +21,22 @@
             --space-24: 6rem;
             --space-32: 8rem;
             
-            /* Colors */
-            --color-primary: #10B981;
-            --color-primary-dark: #059669;
-            --color-black: #111827;
-            --color-black-light: #374151;
+            --color-primary: #FFA000;
+            --color-primary-dark: #FF8F00;
+            --color-black: #333333;
+            --color-black-light: #555555;
             --color-white: #FFFFFF;
-            --color-gray: #F3F4F6;
-            --color-gray-dark: #E5E7EB;
+            --color-gray: #F5F5F5;
+            --color-gray-dark: #E0E0E0;
+            --color-overlay: rgba(0, 0, 0, 0.5);
             
-            /* Effects */
             --border-radius: 8px;
             --border-radius-lg: 12px;
             --box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
-            --box-shadow-hover: 0 12px 48px rgba(16, 185, 129, 0.1);
+            --box-shadow-hover: 0 12px 48px rgba(255, 160, 0, 0.1);
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* ========== */
-        /* BASE STYLES */
-        /* ========== */
         * {
             margin: 0;
             padding: 0;
@@ -80,12 +72,9 @@
             transform: translateX(-50%);
             width: 100vw;
             height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.1), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 160, 0, 0.1), transparent);
         }
         
-        /* ============ */
-        /* TYPOGRAPHY */
-        /* ============ */
         h1, h2, h3, h4 {
             font-weight: 700;
             line-height: 1.2;
@@ -145,9 +134,6 @@
             line-height: 1.7;
         }
         
-        /* ========== */
-        /* HEADER */
-        /* ========== */
         header {
             position: fixed;
             top: 0;
@@ -174,6 +160,7 @@
             display: flex;
             align-items: center;
             gap: var(--space-2);
+            text-decoration: none;
         }
         
         .logo span {
@@ -198,9 +185,7 @@
             transform: scaleX(1);
         }
         
-        /* ========== */
-        /* NAVIGATION */
-        /* ========== */
+        /* Fixed Mobile Menu Toggle */
         .menu-toggle {
             display: none;
             background: none;
@@ -254,9 +239,19 @@
             transform: scaleX(1);
         }
         
-        /* ========== */
-        /* BUTTONS */
-        /* ========== */
+        .close-menu {
+            display: none;
+            position: absolute;
+            top: var(--space-4);
+            right: var(--space-4);
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--color-black);
+            z-index: 1001;
+        }
+        
         .cta-buttons {
             display: flex;
             gap: var(--space-4);
@@ -281,7 +276,7 @@
         .btn-primary {
             background: var(--color-primary);
             color: var(--color-white);
-            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.2);
+            box-shadow: 0 4px 20px rgba(255, 160, 0, 0.2);
             position: relative;
             overflow: hidden;
         }
@@ -322,23 +317,20 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.05), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 160, 0, 0.05), transparent);
             transition: var(--transition);
         }
         
         .btn-secondary:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            background: rgba(16, 185, 129, 0.03);
+            background: rgba(255, 160, 0, 0.03);
         }
         
         .btn-secondary:hover::before {
             left: 100%;
         }
         
-        /* ========== */
-        /* HERO SECTION */
-        /* ========== */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -357,7 +349,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle at center, rgba(16, 185, 129, 0.03) 0%, transparent 50%);
+            background: radial-gradient(circle at center, rgba(255, 160, 0, 0.03) 0%, transparent 50%);
             animation: pulse 15s infinite alternate;
             z-index: 0;
         }
@@ -404,9 +396,6 @@
             display: block;
         }
         
-        /* ========== */
-        /* CARDS */
-        /* ========== */
         .card {
             background: var(--color-white);
             border: 1px solid var(--color-gray-dark);
@@ -420,17 +409,13 @@
         .card:hover {
             transform: translateY(-8px);
             box-shadow: var(--box-shadow-hover);
-            border-color: rgba(16, 185, 129, 0.2);
+            border-color: rgba(255, 160, 0, 0.2);
         }
         
-        /* ========== */
-        /* SECTIONS */
-        /* ========== */
         .section-light {
             background: var(--color-gray);
         }
         
-        /* Problem-Solution Section */
         .problem-solution {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -449,7 +434,6 @@
             border-top: 4px solid var(--color-primary-dark);
         }
         
-        /* Features Section */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -475,7 +459,6 @@
             border-radius: 50%;
         }
         
-        /* Customers Section */
         .customers-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -487,7 +470,6 @@
             border-left: 4px solid var(--color-primary);
         }
         
-        /* Market Stats */
         .market-stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -510,65 +492,6 @@
             -webkit-text-fill-color: transparent;
         }
         
-        /* Roadmap Section */
-        .roadmap-timeline {
-            position: relative;
-            max-width: 1000px;
-            margin: var(--space-12) auto;
-        }
-        
-        .roadmap-timeline::after {
-            content: '';
-            position: absolute;
-            width: 4px;
-            background: linear-gradient(to bottom, var(--color-primary), var(--color-primary-dark));
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -2px;
-            border-radius: 4px;
-        }
-        
-        .roadmap-item {
-            padding: 0 var(--space-8);
-            position: relative;
-            width: 50%;
-            margin-bottom: var(--space-8);
-        }
-        
-        .roadmap-item::after {
-            content: '';
-            position: absolute;
-            width: 24px;
-            height: 24px;
-            background: var(--color-white);
-            border: 4px solid var(--color-primary);
-            border-radius: 50%;
-            top: 15px;
-            z-index: 1;
-        }
-        
-        .left {
-            left: 0;
-        }
-        
-        .right {
-            left: 50%;
-        }
-        
-        .left::after {
-            right: -12px;
-        }
-        
-        .right::after {
-            left: -12px;
-        }
-        
-        .roadmap-content {
-            padding: var(--space-6);
-        }
-        
-        /* News Section */
         .news-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -586,7 +509,6 @@
             font-weight: 500;
         }
         
-        /* FAQ Section */
         .faq-item {
             margin-bottom: var(--space-4);
             padding: var(--space-6);
@@ -621,7 +543,6 @@
             padding-top: var(--space-2);
         }
         
-        /* Team Section */
         .team-member {
             text-align: center;
             max-width: 600px;
@@ -635,7 +556,6 @@
             color: var(--color-primary);
         }
         
-        /* Business Model Section */
         .model-cards {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -647,7 +567,6 @@
             border-top: 4px solid var(--color-primary);
         }
         
-        /* Contact Section */
         .contact-form {
             max-width: 600px;
             margin: 0 auto;
@@ -684,7 +603,7 @@
         .form-group select:focus {
             outline: none;
             border-color: var(--color-primary);
-            box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.1);
+            box-shadow: 0 0 0 2px rgba(255, 160, 0, 0.1);
         }
         
         .form-group textarea {
@@ -721,7 +640,7 @@
         
         button[type="submit"]:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 32px rgba(16, 185, 129, 0.3);
+            box-shadow: 0 8px 32px rgba(255, 160, 0, 0.3);
             background: var(--color-primary-dark);
         }
         
@@ -737,7 +656,6 @@
             border: 1px solid var(--color-gray-dark);
         }
         
-        /* Thank You Message */
         .thank-you-message {
             display: none;
             text-align: center;
@@ -764,53 +682,34 @@
             margin-top: var(--space-4);
         }
         
-        /* ========== */
-        /* FOOTER */
-        /* ========== */
+        /* Fixed Footer */
         footer {
-            background: var(--color-black);
-            color: var(--color-white);
-            padding: var(--space-16) 0 var(--space-8);
+            background: linear-gradient(to right, #FFA000, #FF8F00);
+            color: #FFF;
+            padding: var(--space-16) 0 0;
             position: relative;
-        }
-        
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
         }
         
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: var(--space-8);
+            padding-bottom: var(--space-12);
         }
         
         .footer-section h3 {
-            color: var(--color-white);
+            color: #FFF;
             margin-bottom: var(--space-4);
             font-size: 1.25rem;
             position: relative;
             display: inline-block;
-        }
-        
-        .footer-section h3::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -4px;
-            width: 100%;
-            height: 2px;
-            background: var(--color-primary);
+            padding-bottom: var(--space-2);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
         }
         
         .footer-section p,
         .footer-section a {
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.9);
             line-height: 1.7;
         }
         
@@ -822,30 +721,72 @@
         }
         
         .footer-section a:hover {
-            color: var(--color-primary);
+            color: #FFF;
             transform: translateX(4px);
+        }
+        
+        .copyright-section {
+            background: #333;
+            padding: var(--space-6) 0;
         }
         
         .copyright {
             text-align: center;
-            padding-top: var(--space-8);
-            margin-top: var(--space-8);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.9rem;
+            color: #FFF;
+            font-size: 1rem;
+            font-weight: 500;
+            padding: var(--space-2) 0;
         }
         
         .copyright strong {
-            color: var(--color-white);
-            font-weight: 600;
+            color: var(--color-primary);
+            font-weight: 700;
         }
         
-        /* ================ */
-        /* MEDIA QUERIES */
-        /* ================ */
+        .social-icons {
+            display: flex;
+            gap: var(--space-4);
+            margin-top: var(--space-4);
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+            font-size: 1.2rem;
+        }
+        
+        .social-icons a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        /* Mobile Menu Overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--color-overlay);
+            z-index: 998;
+            display: none;
+            backdrop-filter: blur(5px);
+        }
+        
+        /* Mobile Menu Fixes */
         @media (max-width: 992px) {
-            /* Navigation */
             .menu-toggle {
+                display: block;
+            }
+            
+            .close-menu {
                 display: block;
             }
             
@@ -870,6 +811,7 @@
             nav ul {
                 flex-direction: column;
                 gap: var(--space-4);
+                margin-top: var(--space-8);
             }
             
             nav ul li a {
@@ -877,56 +819,22 @@
                 padding: var(--space-3) 0;
             }
             
-            .close-menu {
-                position: absolute;
-                top: var(--space-4);
-                right: var(--space-4);
-                font-size: 1.5rem;
-                background: none;
-                border: none;
-                cursor: pointer;
-                color: var(--color-black);
-                z-index: 1001;
-            }
-            
-            /* Problem-Solution */
             .problem-solution {
                 grid-template-columns: 1fr;
             }
             
-            /* Roadmap */
-            .roadmap-timeline::after {
-                left: 31px;
-            }
-            
-            .roadmap-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-            
-            .roadmap-item::after {
-                left: 18px;
-            }
-            
-            .left::after, .right::after {
-                left: 18px;
-            }
-            
-            .right {
-                left: 0;
+            .overlay.active {
+                display: block;
             }
         }
         
         @media (max-width: 768px) {
-            /* Header */
             .header-container {
                 flex-direction: row;
                 text-align: left;
                 gap: var(--space-4);
             }
             
-            /* Buttons */
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
@@ -936,17 +844,14 @@
                 width: 100%;
             }
             
-            /* Typography */
             h1 {
                 margin-top: var(--space-8);
             }
             
-            /* Sections */
             section {
                 padding: var(--space-16) 0;
             }
             
-            /* Hero */
             .hero {
                 padding-top: var(--space-24);
                 padding-bottom: var(--space-16);
@@ -956,19 +861,16 @@
                 font-size: 1.1rem;
             }
             
-            /* Grids */
             .features-grid, .customers-grid, .model-cards {
                 grid-template-columns: 1fr;
             }
         }
         
         @media (max-width: 480px) {
-            /* Container */
             .container {
                 padding: 0 var(--space-2);
             }
             
-            /* Typography */
             h1 {
                 font-size: 2rem;
                 margin-top: var(--space-6);
@@ -983,41 +885,37 @@
                 font-size: 1rem;
             }
             
-            /* Buttons */
             .btn {
                 min-width: 100%;
                 padding: var(--space-3) var(--space-4);
             }
             
-            /* Hero */
             .hero-image-container {
                 margin-top: var(--space-6);
-            }
-            
-            /* Roadmap */
-            .roadmap-content {
-                padding: var(--space-4);
             }
         }
     </style>
 </head>
-
 <body>
-    <!-- Header Section -->
+    <!-- Overlay for mobile menu -->
+    <div class="overlay" id="overlay"></div>
+    
+    <!-- Header -->
     <header>
         <div class="container header-container">
-            <div class="logo">Blocentra<span>AI</span></div>
-            
-            <button class="menu-toggle" id="menuToggle">☰</button>
-            
+            <a href="#" class="logo">Blocentra<span>AI</span></a>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
             <nav id="mainNav">
-                <button class="close-menu" id="closeMenu">×</button>
+                <button class="close-menu" id="closeMenu">
+                    <i class="fas fa-times"></i>
+                </button>
                 <ul>
                     <li><a href="#problem-solution">Problem & Solution</a></li>
                     <li><a href="#features">Features</a></li>
                     <li><a href="#customers">Customers</a></li>
                     <li><a href="#market">Market</a></li>
-                    <li><a href="#roadmap">Roadmap</a></li>
                     <li><a href="#news">News</a></li>
                     <li><a href="#faq">FAQ</a></li>
                     <li><a href="#team">Team</a></li>
@@ -1033,19 +931,17 @@
         <div class="container">
             <h1>AI-POWERED BITCOIN INSURANCE & RISK INTELLIGENCE</h1>
             <p class="subtitle">BlocentraAI is revolutionizing Bitcoin security with institutional-grade protection, predictive risk analytics, and yield activation for the decentralized economy.</p>
-            
             <div class="cta-buttons">
                 <a href="https://riek27.github.io/blocentraAIdemo/" class="btn btn-primary" target="_blank">View MVP Preview</a>
                 <a href="#contact" class="btn btn-secondary">Request Demo</a>
             </div>
-            
             <div class="hero-image-container card">
                 <img src="https://images.unsplash.com/photo-1639762681057-408e52192e55?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="AI-Powered Bitcoin Protection" class="hero-image">
             </div>
         </div>
     </section>
 
-    <!-- Problem & Solution Section -->
+    <!-- Problem & Solution -->
     <section id="problem-solution" class="section-light">
         <div class="container">
             <h2>Problem & Solution</h2>
@@ -1078,93 +974,69 @@
         </div>
     </section>
 
-    <!-- Features Section -->
+    <!-- Features -->
     <section id="features" class="section-light">
         <div class="container">
-            <h2>Key features</h2>
+            <h2>Key Features</h2>
             <div class="features-grid">
                 <div class="feature-card card">
-                    <h3>Idle Bitcoin unlocking</h3>
-                    <p>Enable BTC holders to unlock value from dormant assets without selling or wrapping, by safely participating in insured lending pools and yield-generating BTCFi protocols.</p>
+                    <h3>Idle Bitcoin Unlocking</h3>
+                    <p>Enable BTC holders to unlock value from dormant assets without selling or wrapping, by safely participating in insured lending pools.</p>
                 </div>
                 <div class="feature-card card">
-                    <h3>AI-powered Bitcoin insurance</h3>
-                    <p>Offer dynamically priced, behavior-driven insurance policies covering cold wallets, hot wallets, smart contracts, cross-chain bridges, and Layer 2 BTCFi assets.</p>
+                    <h3>AI-Powered Insurance</h3>
+                    <p>Offer dynamically priced, behavior-driven insurance policies covering cold wallets, hot wallets, and Layer 2 BTCFi assets.</p>
                 </div>
                 <div class="feature-card card">
-                    <h3>Real-time BTC risk intelligence</h3>
-                    <p>Continuously analyze wallet activity, transaction patterns, threat signals, and market anomalies to deliver wallet trust scores and risk alerts.</p>
+                    <h3>Real-time Risk Intelligence</h3>
+                    <p>Continuously analyze wallet activity, transaction patterns, and market anomalies to deliver wallet trust scores.</p>
                 </div>
                 <div class="feature-card card">
-                    <h3>Predictive AI risk models</h3>
-                    <p>Employ advanced forecasting algorithms to anticipate systemic risks such as protocol failures, market liquidations, bridge exploits, and black swan events.</p>
+                    <h3>Predictive AI Models</h3>
+                    <p>Employ advanced forecasting algorithms to anticipate systemic risks such as protocol failures and black swan events.</p>
                 </div>
                 <div class="feature-card card">
-                    <h3>Non-custodial protection</h3>
-                    <p>Provide flexible coverage options that maintain user ownership and control, whether for self-custodied wallets or institutional custodians with managed assets.</p>
+                    <h3>Non-Custodial Protection</h3>
+                    <p>Provide flexible coverage options that maintain user ownership and control of private keys.</p>
                 </div>
                 <div class="feature-card card">
-                    <h3>Compliance dashboards</h3>
-                    <p>Equip exchanges, funds, and regulatory bodies with transparent, auditable risk analytics and reporting tools that streamline compliance processes.</p>
-                </div>
-                <div class="feature-card card">
-                    <h3>Smart underwriting</h3>
-                    <p>Leverage AI to automate underwriting decisions and claims adjudication, reducing friction and improving accuracy while maintaining transparency.</p>
-                </div>
-                <div class="feature-card card">
-                    <h3>AI-managed yield access</h3>
-                    <p>Facilitate secure, risk-scored lending opportunities for BTC holders, bridging retail capital into institutional-grade BTCFi pools under AI supervision.</p>
-                </div>
-                <div class="feature-card card">
-                    <h3>B2B API ecosystem</h3>
-                    <p>Offer modular APIs for wallets, custodians, exchanges, and DeFi protocols to integrate real-time risk scoring, claims management, and protection products.</p>
+                    <h3>Compliance Dashboards</h3>
+                    <p>Equip exchanges and regulatory bodies with transparent, auditable risk analytics and reporting tools.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Customers Section -->
+    <!-- Customers -->
     <section id="customers" class="section-light">
         <div class="container">
-            <h2>Target customers</h2>
+            <h2>Target Customers</h2>
             <div class="customers-grid">
                 <div class="customer-card card">
-                    <h3>Retail Bitcoin holders</h3>
-                    <p>Individual investors seeking affordable insurance and yield opportunities without relinquishing control of their private keys.</p>
+                    <h3>Retail Bitcoin Holders</h3>
+                    <p>Individual investors seeking affordable insurance and yield opportunities without relinquishing control.</p>
                 </div>
                 <div class="customer-card card">
-                    <h3>High-net-worth individuals</h3>
-                    <p>Investors with significant Bitcoin holdings who require bespoke, institutional-grade insurance products and advanced portfolio tools.</p>
+                    <h3>High-Net-Worth Individuals</h3>
+                    <p>Investors requiring bespoke, institutional-grade insurance products and advanced portfolio tools.</p>
                 </div>
                 <div class="customer-card card">
-                    <h3>Crypto custodians</h3>
-                    <p>Service providers managing BTC assets looking to embed insurance offerings and risk scoring natively into their platforms.</p>
+                    <h3>Crypto Custodians</h3>
+                    <p>Service providers looking to embed insurance offerings and risk scoring natively into platforms.</p>
                 </div>
                 <div class="customer-card card">
-                    <h3>Institutions & asset managers</h3>
-                    <p>Hedge funds, ETFs, and traditional financial institutions expanding into Bitcoin that demand real-time risk analytics.</p>
-                </div>
-                <div class="customer-card card">
-                    <h3>Exchanges & OTC desks</h3>
-                    <p>Crypto trading platforms requiring sophisticated wallet reputation systems and insurance integrations to reduce fraud.</p>
-                </div>
-                <div class="customer-card card">
-                    <h3>DeFi & BTCFi protocols</h3>
-                    <p>Developers building Bitcoin Layer 2 solutions who need reliable risk assessment and insurance coverage.</p>
-                </div>
-                <div class="customer-card card">
-                    <h3>Regulators & governments</h3>
-                    <p>Authorities seeking aggregated Bitcoin risk intelligence to better understand systemic vulnerabilities and inform policy.</p>
+                    <h3>Institutions & Asset Managers</h3>
+                    <p>Hedge funds, ETFs, and financial institutions demanding real-time risk analytics.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Market Section -->
+    <!-- Market -->
     <section id="market" class="section-light">
         <div class="container">
-            <h2>Market opportunity</h2>
-            <p>The market opportunity for BlocentraAI is immense, multifaceted, and poised for exponential growth as Bitcoin continues its evolution from a niche digital asset to a mainstream financial instrument.</p>
+            <h2>Market Opportunity</h2>
+            <p>The market opportunity for BlocentraAI is immense and poised for exponential growth as Bitcoin continues its evolution from a niche digital asset to a mainstream financial instrument.</p>
             
             <div class="market-stats">
                 <div class="stat card">
@@ -1176,103 +1048,33 @@
                     <p>of BTC currently unprotected</p>
                 </div>
                 <div class="stat card">
-                    <h3>$80+B</h3>
+                    <h3>$40+B</h3>
                     <p>Projected crypto insurance market by 2030</p>
                 </div>
             </div>
-            
-            <h3>Key market verticals</h3>
-            <ul>
-                <li><strong>Crypto insurance market:</strong> Currently estimated at several billion dollars and projected to exceed $40 billion by 2030.</li>
-                <li><strong>Bitcoin financialization (BTCFi):</strong> With over $25 billion in idle Bitcoin projected to participate in lending and insurance pools by 2026.</li>
-                <li><strong>Institutional adoption & compliance:</strong> Demand for transparent, compliant risk management tools is skyrocketing as institutions allocate to Bitcoin.</li>
-                <li><strong>Retail market growth:</strong> Democratization of Bitcoin ownership drives sustained growth in wallets requiring accessible protection.</li>
-                <li><strong>Regulatory use cases:</strong> Governments seek data-driven tools to monitor Bitcoin risk flows and enforce compliance.</li>
-            </ul>
         </div>
     </section>
 
-    <!-- Roadmap Section -->
-    <section id="roadmap" class="section-light">
-        <div class="container">
-            <h2>Roadmap</h2>
-            <div class="roadmap-timeline">
-                <div class="roadmap-item left">
-                    <div class="roadmap-content card">
-                        <h3>Year 1 Q1-Q3</h3>
-                        <ul>
-                            <li>Launch in U.S</li>
-                            <li>Onboard beta testers</li>
-                            <li>Finalize regulatory structure</li>
-                            <li>Test insurance and wallet integration MVP</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="roadmap-item right">
-                    <div class="roadmap-content card">
-                        <h3>Year 1 Q4 - Year 2 Q2</h3>
-                        <ul>
-                            <li>Enter entire U.S, and start parnership</li>
-                            <li>Launch partnerships with custodians, DeFi wallets</li>
-                            <li>Begin rollout in Singapore, and Few EU country , Switzerland, Germany and UK</li>
-                            <li>Localize compliance tools</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="roadmap-item left">
-                    <div class="roadmap-content card">
-                        <h3>Year 2 Q3 - Year 3 Q2</h3>
-                        <ul>
-                            <li>Expand to EU. and Canada through institutional partnerships</li>
-                            <li>Establish B2B pilots in EU Countries, Saudi Arabia</li>
-                            <li>Add Local-language compliance dashboards</li>
-                            <li>Target mobile-first wallets with integrated BTC insurance</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="roadmap-item right">
-                    <div class="roadmap-content card">
-                        <h3>Year 3 Q3 - Year 4 Q2</h3>
-                        <ul>
-                            <li>Launch in Brazil, Argentina, Mexico</li>
-                            <li>Focus on wallet-integrated protection for retail users</li>
-                            <li>Build yield tools for underbanked populations</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="roadmap-item left">
-                    <div class="roadmap-content card">
-                        <h3>Year 4 Q3 - Year 5 Q4</h3>
-                        <ul>
-                            <li>Full multi-region coverage</li>
-                            <li>Monetize risk data and infrastructure licensing</li>
-                            <li>Reach profitability through global B2B + API scale</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- News Section -->
+    <!-- News -->
     <section id="news" class="section-light">
         <div class="container">
-            <h2>Latest news</h2>
+            <h2>Latest News</h2>
             <div class="news-grid">
                 <div class="news-card card">
                     <div class="news-date">June 10, 2025</div>
-                    <h3>MVP preview now available</h3>
+                    <h3>MVP Preview Now Available</h3>
                     <p>Our minimum viable product is now live for preview, showcasing the core risk scoring and insurance interface for Bitcoin holders.</p>
                     <a href="https://riek27.github.io/blocentraAIdemo/" target="_blank" class="btn btn-primary" style="margin-top: var(--space-4); display: inline-block;">View MVP</a>
+             
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section -->
+    <!-- FAQ -->
     <section id="faq" class="section-light">
         <div class="container">
-            <h2>Frequently asked questions</h2>
+            <h2>Frequently Asked Questions</h2>
             <div class="faq-item card">
                 <div class="faq-question">How does BlocentraAI's insurance differ from traditional crypto insurance?</div>
                 <div class="faq-answer">
@@ -1291,25 +1093,13 @@
                     <p>Our AI analyzes multiple data points including wallet activity patterns, transaction history, threat intelligence feeds, and market conditions to generate dynamic risk scores that update in real-time.</p>
                 </div>
             </div>
-            <div class="faq-item card">
-                <div class="faq-question">What regions do you currently operate in?</div>
-                <div class="faq-answer">
-                    <p>We're initially launching in US , with planned expansion to EU, Asia, and Latin America as outlined in our roadmap.</p>
-                </div>
-            </div>
-            <div class="faq-item card">
-                <div class="faq-question">How can I try the platform?</div>
-                <div class="faq-answer">
-                    <p>You can preview our MVP at <a href="https://riek27.github.io/blocentraAIdemo/" target="_blank" style="color: var(--color-primary);">riek27.github.io/blocentraAIdemo/</a>. For early access to the full platform, please contact us through our inquiry form.</p>
-                </div>
-            </div>
         </div>
     </section>
 
-    <!-- Team Section -->
+    <!-- Team -->
     <section id="team" class="section-light">
         <div class="container">
-            <h2>Founder & team</h2>
+            <h2>Founder & Team</h2>
             <div class="team-member card">
                 <h3>Riek Gatluak Geka</h3>
                 <p>Founder & CEO</p>
@@ -1317,57 +1107,16 @@
                 <p>Email: riekgatluak25@gmail.com</p>
                 <p>WhatsApp: +211981211736</p>
             </div>
-            
-            <h3>Initial hiring plan</h3>
-            <div class="features-grid">
-                <div class="feature-card card">
-                    <h3>Engineering & AI</h3>
-                    <ul>
-                        <li>3 AI/ML engineers</li>
-                        <li>2 blockchain developers</li>
-                        <li>1 DevOps engineer</li>
-                    </ul>
-                </div>
-                <div class="feature-card card">
-                    <h3>Insurance & risk</h3>
-                    <ul>
-                        <li>2 actuarial scientists</li>
-                        <li>1 lead underwriter</li>
-                        <li>1 claims processing expert</li>
-                    </ul>
-                </div>
-                <div class="feature-card card">
-                    <h3>Compliance & legal</h3>
-                    <ul>
-                        <li>1 legal officer</li>
-                        <li>1 compliance officer</li>
-                    </ul>
-                </div>
-                <div class="feature-card card">
-                    <h3>Sales & partnerships</h3>
-                    <ul>
-                        <li>1 enterprise BD lead</li>
-                        <li>1 partnership manager</li>
-                    </ul>
-                </div>
-                <div class="feature-card card">
-                    <h3>Marketing & community</h3>
-                    <ul>
-                        <li>1 growth hacker</li>
-                        <li>1 content/community lead</li>
-                    </ul>
-                </div>
-            </div>
         </div>
     </section>
 
-    <!-- Business Model Section -->
+    <!-- Business Model -->
     <section id="model" class="section-light">
         <div class="container">
-            <h2>Business model</h2>
+            <h2>Business Model</h2>
             <div class="model-cards">
                 <div class="model-card card">
-                    <h3>SaaS subscriptions</h3>
+                    <h3>SaaS Subscriptions</h3>
                     <ul>
                         <li>Freemium access for retail BTC holders</li>
                         <li>Tiered institutional plans</li>
@@ -1375,7 +1124,7 @@
                     </ul>
                 </div>
                 <div class="model-card card">
-                    <h3>Insurance premiums</h3>
+                    <h3>Insurance Premiums</h3>
                     <ul>
                         <li>Dynamic pricing engine (avg 2% of BTC insured)</li>
                         <li>Covers wallet hacks, phishing, bridge losses</li>
@@ -1383,47 +1132,23 @@
                     </ul>
                 </div>
                 <div class="model-card card">
-                    <h3>API licensing</h3>
+                    <h3>API Licensing</h3>
                     <ul>
                         <li>Real-time risk scores and fraud intelligence</li>
                         <li>Licensed to wallets, exchanges, BTCFi protocols</li>
                         <li>Usage-based pricing tiers</li>
                     </ul>
                 </div>
-                <div class="model-card card">
-                    <h3>Yield revenue sharing</h3>
-                    <ul>
-                        <li>AI-vetted BTCFi lending pools</li>
-                        <li>Share of generated interest and margins</li>
-                        <li>Risk-weighted, stress-tested vaults</li>
-                    </ul>
-                </div>
-                <div class="model-card card">
-                    <h3>Enterprise contracts</h3>
-                    <ul>
-                        <li>Custom modules for exchanges and insurers</li>
-                        <li>Compliance reporting and local support</li>
-                        <li>Hybrid on-prem/cloud deployments</li>
-                    </ul>
-                </div>
-                <div class="model-card card">
-                    <h3>Risk data monetization</h3>
-                    <ul>
-                        <li>Anonymized macro insights</li>
-                        <li>Licensed to trading desks and regulators</li>
-                        <li>Premium dataset for risk modeling</li>
-                    </ul>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact -->
     <section id="contact" class="section-light">
         <div class="container">
-            <h2>Contact us</h2>
+            <h2>Contact Us</h2>
             <div class="contact-form card">
-                <form id="contactForm" action="https://formspree.io/f/xgvybepe" method="POST">
+                <form id="contactForm">
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" required>
@@ -1456,29 +1181,29 @@
                 <p>Your message has been successfully sent. Our team will get back to you shortly.</p>
                 <a href="#" class="btn btn-primary">Back to Home</a>
             </div>
-            
-            <div class="legal-note card">
-                <h3>Privacy & data protection</h3>
-                <p>We take your privacy seriously. Your email and personal information will never be shared with third parties without your consent. All data is encrypted and stored securely in compliance with GDPR regulations.</p>
-            </div>
         </div>
     </section>
 
-    <!-- Footer Section -->
+    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>About BlocentraAI</h3>
                     <p>BlocentraAI is a revolutionary AI-powered Bitcoin insurance and risk intelligence startup, purpose-built to redefine the safety, utility, and productivity of Bitcoin in the modern financial era.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                    </div>
                 </div>
                 <div class="footer-section">
-                    <h3>Quick links</h3>
+                    <h3>Quick Links</h3>
                     <a href="#problem-solution">Problem & Solution</a>
                     <a href="#features">Features</a>
                     <a href="#customers">Customers</a>
                     <a href="#market">Market Opportunity</a>
-                    <a href="#roadmap">Roadmap</a>
                     <a href="#news">News</a>
                     <a href="#faq">FAQ</a>
                 </div>
@@ -1486,7 +1211,7 @@
                     <h3>Contact</h3>
                     <a href="mailto:blocentraai@gmail.com">Email: blocentraai@gmail.com</a>
                     <a href="https://wa.me/211981211736">WhatsApp: +211 981 211 736</a>
-                    <p>HQ is Deleware US (planned)</p>
+                    <p>HQ: Delaware, US (planned)</p>
                 </div>
                 <div class="footer-section">
                     <h3>Legal</h3>
@@ -1496,125 +1221,143 @@
                     <a href="#disclaimer">Disclaimer</a>
                 </div>
             </div>
-            <div class="copyright" style="color: #10B981;">
-                <p>&copy; <strong style="color: #10B981;">2025 BlocentraAI</strong>. All rights reserved.</p>
+        </div>
+        <div class="copyright-section">
+            <div class="container">
+                <div class="copyright">
+                    <p>&copy; <strong id="copyrightYear">2025</strong> BlocentraAI. All rights reserved.</p>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
     <script>
-        // Mobile Navigation Toggle
-        const menuToggle = document.getElementById('menuToggle');
-        const closeMenu = document.getElementById('closeMenu');
-        const mainNav = document.getElementById('mainNav');
-        
-        menuToggle.addEventListener('click', () => {
-            mainNav.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
-        
-        closeMenu.addEventListener('click', () => {
-            mainNav.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-        
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', () => {
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle
+            const menuToggle = document.getElementById('menuToggle');
+            const closeMenu = document.getElementById('closeMenu');
+            const mainNav = document.getElementById('mainNav');
+            const navLinks = document.querySelectorAll('nav a');
+            const overlay = document.getElementById('overlay');
+            
+            // Toggle mobile menu
+            menuToggle.addEventListener('click', () => {
+                mainNav.classList.add('active');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+            
+            // Close mobile menu
+            closeMenu.addEventListener('click', () => {
                 mainNav.classList.remove('active');
+                overlay.classList.remove('active');
                 document.body.style.overflow = '';
             });
-        });
-
-        // FAQ Accordion
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const answer = question.nextElementSibling;
-                const isOpen = question.classList.contains('active');
-                
-                document.querySelectorAll('.faq-question').forEach(q => {
-                    q.classList.remove('active');
-                    q.nextElementSibling.style.display = 'none';
-                });
-                
-                if (!isOpen) {
-                    question.classList.add('active');
-                    answer.style.display = 'block';
-                }
+            
+            // Close menu when clicking on overlay
+            overlay.addEventListener('click', () => {
+                mainNav.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
             });
-        });
+            
+            // Close menu when clicking on links
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mainNav.classList.remove('active');
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+            
+            // FAQ accordion
+            document.querySelectorAll('.faq-question').forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const isOpen = question.classList.contains('active');
+                    
+                    // Close all other FAQ items
+                    document.querySelectorAll('.faq-question').forEach(q => {
+                        q.classList.remove('active');
+                        q.nextElementSibling.style.display = 'none';
+                    });
+                    
+                    // Open clicked item if it was closed
+                    if (!isOpen) {
+                        question.classList.add('active');
+                        answer.style.display = 'block';
+                    }
+                });
+            });
 
-        // Smooth Scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Form submission
+            const contactForm = document.getElementById('contactForm');
+            const thankYouMessage = document.getElementById('thankYouMessage');
+
+            contactForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
+                // Simple form submission simulation
+                contactForm.style.display = 'none';
+                thankYouMessage.style.display = 'block';
+                contactForm.reset();
+            });
+            
+            // Update copyright year
+            document.getElementById('copyrightYear').textContent = new Date().getFullYear();
+            
+            // Animation on scroll
+            window.addEventListener('scroll', () => {
+                const cards = document.querySelectorAll('.card');
+                cards.forEach(card => {
+                    const cardPosition = card.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.3;
+                    
+                    if(cardPosition < screenPosition) {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+            
+            // Initialize animations
+            window.addEventListener('load', () => {
+                const cards = document.querySelectorAll('.card');
+                cards.forEach(card => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    card.style.transition = 'all 0.6s ease';
+                });
                 
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 100,
-                        behavior: 'smooth'
+                setTimeout(() => {
+                    cards.forEach(card => {
+                        const cardPosition = card.getBoundingClientRect().top;
+                        const screenPosition = window.innerHeight / 1.3;
+                        
+                        if(cardPosition < screenPosition) {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }
                     });
-                }
-            });
-        });
-
-        // Scroll Animations
-        const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.card, h2, h3, p, li');
-            
-            elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.2;
-                
-                if (elementPosition < screenPosition) {
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
-                }
-            });
-        };
-
-        // Initialize Animation States
-        document.querySelectorAll('.card, h2, h3, p, li').forEach(element => {
-            element.style.opacity = '0';
-            element.style.transform = 'translateY(20px)';
-            element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        });
-
-        window.addEventListener('load', animateOnScroll);
-        window.addEventListener('scroll', animateOnScroll);
-
-        // Form Submission Handling
-        const contactForm = document.getElementById('contactForm');
-        const thankYouMessage = document.getElementById('thankYouMessage');
-
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(this);
-            
-            fetch(this.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-            .then(response => {
-                if (response.ok) {
-                    contactForm.style.display = 'none';
-                    thankYouMessage.style.display = 'block';
-                    contactForm.reset();
-                } else {
-                    throw new Error('Network response was not ok');
-                }
-            })
-            .catch(error => {
-                console.error('There was a problem with the form submission:', error);
-                alert('There was a problem submitting your form. Please try again.');
+                }, 100);
             });
         });
     </script>
