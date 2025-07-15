@@ -94,3 +94,6 @@ blocentraAI/
 ├── assets/               # Images, logos, CSS styles
 ├── README.md             # This file
 └── ...
+## 📄 License
+
+This project is licensed under the [MIT License](./LICENSE).
