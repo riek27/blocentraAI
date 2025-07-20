@@ -388,12 +388,181 @@
             box-shadow: var(--box-shadow);
             border: 1px solid var(--color-gray-dark);
             background: var(--color-white);
+            padding: var(--space-8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 400px;
         }
         
         .hero-image {
-            width: 100%;
+            max-width: 100%;
             height: auto;
             display: block;
+        }
+        
+        .hero-image-composition {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            height: 400px;
+        }
+        
+        .bitcoin-symbol {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 12rem;
+            color: #F7931A;
+            z-index: 2;
+            opacity: 0.9;
+        }
+        
+        .ai-brain {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 280px;
+            height: 280px;
+            background: 
+                radial-gradient(circle at 30% 30%, rgba(247, 147, 26, 0.15) 0%, transparent 20%),
+                radial-gradient(circle at 70% 30%, rgba(247, 147, 26, 0.15) 0%, transparent 20%),
+                radial-gradient(circle at 50% 70%, rgba(247, 147, 26, 0.15) 0%, transparent 30%);
+            border-radius: 50%;
+            z-index: 1;
+            animation: brainPulse 4s infinite alternate;
+        }
+        
+        @keyframes brainPulse {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+            100% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+        }
+        
+        .lock-key-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+            width: 200px;
+            height: 200px;
+            animation: unlockAnimation 5s infinite alternate;
+        }
+        
+        @keyframes unlockAnimation {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            30% { transform: translate(-50%, -50%) rotate(-10deg); }
+            60% { transform: translate(-50%, -50%) rotate(10deg); }
+            100% { transform: translate(-50%, -50%) rotate(0deg); }
+        }
+        
+        .lock {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #FF8F00, #FFA000);
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        
+        .lock::before {
+            content: '';
+            position: absolute;
+            top: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 40px;
+            background: linear-gradient(135deg, #FF8F00, #FFA000);
+            border-radius: 20px 20px 0 0;
+        }
+        
+        .lock::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 30px;
+            background: #FF8F00;
+            border-radius: 5px;
+        }
+        
+        .key {
+            position: absolute;
+            top: 60px;
+            right: 10px;
+            width: 70px;
+            height: 20px;
+            background: linear-gradient(135deg, #FF8F00, #FFA000);
+            border-radius: 5px;
+            animation: keyInsert 5s infinite alternate;
+        }
+        
+        .key::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            right: 0;
+            width: 25px;
+            height: 40px;
+            background: linear-gradient(135deg, #FF8F00, #FFA000);
+            border-radius: 50%;
+        }
+        
+        @keyframes keyInsert {
+            0%, 70% { right: 10px; }
+            80%, 100% { right: 60px; }
+        }
+        
+        .unlock-effect {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            border: 3px solid rgba(247, 147, 26, 0.3);
+            z-index: 4;
+            animation: unlockPulse 3s infinite alternate;
+            display: none;
+        }
+        
+        .unlock-animation .unlock-effect {
+            display: block;
+        }
+        
+        @keyframes unlockPulse {
+            0% { width: 350px; height: 350px; opacity: 0.3; }
+            100% { width: 450px; height: 450px; opacity: 0; }
+        }
+        
+        .unlock-text {
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #F7931A;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.9;
+            z-index: 5;
+            animation: textPulse 2s infinite alternate;
+        }
+        
+        @keyframes textPulse {
+            0% { opacity: 0.7; transform: translateX(-50%) scale(1); }
+            100% { opacity: 1; transform: translateX(-50%) scale(1.05); }
         }
         
         .card {
@@ -864,6 +1033,39 @@
             .features-grid, .customers-grid, .model-cards {
                 grid-template-columns: 1fr;
             }
+            
+            .hero-image-container {
+                min-height: 300px;
+            }
+            
+            .bitcoin-symbol {
+                font-size: 8rem;
+            }
+            
+            .ai-brain {
+                width: 220px;
+                height: 220px;
+            }
+            
+            .lock-key-container {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .lock {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .key {
+                width: 60px;
+                height: 15px;
+            }
+            
+            .unlock-text {
+                font-size: 1.5rem;
+                top: 75%;
+            }
         }
         
         @media (max-width: 480px) {
@@ -892,6 +1094,49 @@
             
             .hero-image-container {
                 margin-top: var(--space-6);
+                min-height: 250px;
+            }
+            
+            .bitcoin-symbol {
+                font-size: 6rem;
+            }
+            
+            .ai-brain {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .lock-key-container {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .lock {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .lock::before {
+                top: -25px;
+                width: 40px;
+                height: 30px;
+            }
+            
+            .lock::after {
+                top: 15px;
+                width: 40px;
+                height: 20px;
+            }
+            
+            .key {
+                width: 45px;
+                height: 12px;
+                top: 45px;
+            }
+            
+            .unlock-text {
+                font-size: 1.2rem;
+                top: 80%;
             }
         }
     </style>
@@ -929,14 +1174,23 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>AI-POWERED BITCOIN INSURANCE & RISK INTELLIGENCE</h1>
-            <p class="subtitle">BlocentraAI is revolutionizing Bitcoin security with institutional-grade protection, predictive risk analytics, and yield activation for the decentralized economy.</p>
+            <h1>UNLOCK YOUR BITCOIN'S POTENTIAL</h1>
+            <p class="subtitle">BlocentraAI revolutionizes Bitcoin security with AI-powered insurance and risk intelligence, unlocking the value of idle Bitcoin assets</p>
             <div class="cta-buttons">
                 <a href="https://riek27.github.io/blocentraAIdemo/" class="btn btn-primary" target="_blank">View MVP Preview</a>
                 <a href="#contact" class="btn btn-secondary">Request Demo</a>
             </div>
             <div class="hero-image-container card">
-                <img src="https://images.unsplash.com/photo-1639762681057-408e52192e55?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" alt="AI-Powered Bitcoin Protection" class="hero-image">
+                <div class="hero-image-composition">
+                    <div class="ai-brain"></div>
+                    <div class="bitcoin-symbol">₿</div>
+                    <div class="lock-key-container">
+                        <div class="lock"></div>
+                        <div class="key"></div>
+                    </div>
+                    <div class="unlock-effect"></div>
+                    <div class="unlock-text">Unlock Idle Bitcoin</div>
+                </div>
             </div>
         </div>
     </section>
@@ -1065,7 +1319,16 @@
                     <h3>MVP Preview Now Available</h3>
                     <p>Our minimum viable product is now live for preview, showcasing the core risk scoring and insurance interface for Bitcoin holders.</p>
                     <a href="https://riek27.github.io/blocentraAIdemo/" target="_blank" class="btn btn-primary" style="margin-top: var(--space-4); display: inline-block;">View MVP</a>
-             
+                </div>
+                <div class="news-card card">
+                    <div class="news-date">May 25, 2025</div>
+                    <h3>Seed Funding Round Closed</h3>
+                    <p>We've successfully closed our seed funding round with strategic investors to accelerate development and market expansion.</p>
+                </div>
+                <div class="news-card card">
+                    <div class="news-date">April 15, 2025</div>
+                    <h3>Partnership with Major Custodian</h3>
+                    <p>We're excited to announce our partnership with a leading crypto custodian to integrate our risk intelligence technology.</p>
                 </div>
             </div>
         </div>
@@ -1093,6 +1356,12 @@
                     <p>Our AI analyzes multiple data points including wallet activity patterns, transaction history, threat intelligence feeds, and market conditions to generate dynamic risk scores that update in real-time.</p>
                 </div>
             </div>
+            <div class="faq-item card">
+                <div class="faq-question">How long does it take to activate coverage?</div>
+                <div class="faq-answer">
+                    <p>Coverage can be activated instantly after risk assessment. Our AI completes the risk evaluation in seconds, enabling immediate protection for your Bitcoin assets.</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1106,6 +1375,16 @@
                 <p>Crypto security expert, DeFi innovator, AI strategist</p>
                 <p>Email: riekgatluak25@gmail.com</p>
                 <p>WhatsApp: +211981211736</p>
+            </div>
+            <div class="team-member card">
+                <h3>Sarah Johnson</h3>
+                <p>Chief Technology Officer</p>
+                <p>Blockchain architect with 10+ years in financial systems</p>
+            </div>
+            <div class="team-member card">
+                <h3>Michael Chen</h3>
+                <p>Head of Risk Analytics</p>
+                <p>Former lead quantitative analyst at major investment bank</p>
             </div>
         </div>
     </section>
@@ -1359,6 +1638,27 @@
                     });
                 }, 100);
             });
+            
+            // Unlock animation sequence
+            const lockKeyContainer = document.querySelector('.lock-key-container');
+            const unlockEffect = document.querySelector('.unlock-effect');
+            const unlockText = document.querySelector('.unlock-text');
+            
+            function playUnlockAnimation() {
+                lockKeyContainer.classList.add('unlock-animation');
+                unlockEffect.style.display = 'block';
+                
+                setTimeout(() => {
+                    lockKeyContainer.classList.remove('unlock-animation');
+                    unlockEffect.style.display = 'none';
+                }, 3000);
+            }
+            
+            // Play unlock animation every 8 seconds
+            setInterval(playUnlockAnimation, 8000);
+            
+            // Play immediately on load
+            setTimeout(playUnlockAnimation, 1000);
         });
     </script>
 </body>
