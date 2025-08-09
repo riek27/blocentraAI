@@ -43,6 +43,10 @@
             box-sizing: border-box;
         }
         
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
@@ -50,6 +54,8 @@
             background: var(--color-white);
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
+            /* Prevent content jump when scrollbar appears */
+            padding-right: 0 !important;
         }
         
         .container {
@@ -286,19 +292,6 @@
         nav ul li a:hover::after {
             transform-origin: left;
             transform: scaleX(1);
-        }
-        
-        .close-menu {
-            display: none;
-            position: absolute;
-            top: var(--space-4);
-            right: var(--space-4);
-            font-size: 1.5rem;
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: var(--color-black);
-            z-index: 1001;
         }
         
         .cta-buttons {
@@ -1013,13 +1006,10 @@
             opacity: 1;
         }
         
-        /* Mobile Menu Fixes */
+        /* Enhanced Mobile Styles */
         @media (max-width: 992px) {
+            /* Mobile Menu */
             .menu-toggle {
-                display: block;
-            }
-            
-            .close-menu {
                 display: block;
             }
             
@@ -1032,7 +1022,7 @@
                 height: 100vh;
                 background: var(--color-white);
                 box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-                padding: var(--space-12) var(--space-4) var(--space-4);
+                padding: var(--space-16) var(--space-6) var(--space-6);
                 transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
                 z-index: 1000;
                 opacity: 0;
@@ -1063,20 +1053,32 @@
                 color: var(--color-primary);
             }
             
-            .problem-solution {
-                grid-template-columns: 1fr;
+            /* Text size adjustments */
+            h1 {
+                font-size: clamp(1.8rem, 6vw, 3rem);
+                margin-top: var(--space-6);
             }
             
-            .overlay.active {
-                display: block;
+            h2 {
+                font-size: clamp(1.4rem, 4vw, 2rem);
+                margin-bottom: var(--space-6);
             }
-        }
-        
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: row;
-                text-align: left;
-                gap: var(--space-4);
+            
+            h3 {
+                font-size: clamp(1.2rem, 3vw, 1.4rem);
+            }
+            
+            p, li {
+                font-size: clamp(0.95rem, 1.8vw, 1rem);
+                line-height: 1.8;
+            }
+            
+            .hero .subtitle {
+                font-size: clamp(1rem, 3vw, 1.2rem);
+            }
+            
+            .problem-solution {
+                grid-template-columns: 1fr;
             }
             
             .cta-buttons {
@@ -1087,10 +1089,6 @@
             .btn {
                 width: 100%;
                 min-width: unset;
-            }
-            
-            h1 {
-                margin-top: var(--space-6);
             }
             
             section {
@@ -1141,6 +1139,24 @@
             .unlock-text {
                 font-size: clamp(1.2rem, 3vw, 1.5rem);
                 top: 80%;
+                white-space: normal;
+                text-align: center;
+                padding: 0 10px;
+                width: 100%;
+            }
+            
+            /* Increased spacing for mobile */
+            .card {
+                margin-bottom: var(--space-4);
+                padding: var(--space-3);
+            }
+            
+            .faq-question {
+                padding-right: var(--space-6);
+            }
+            
+            .market-stats {
+                grid-template-columns: 1fr;
             }
         }
         
@@ -1160,7 +1176,7 @@
             }
             
             p, li {
-                font-size: 0.95rem;
+                font-size: 1rem;
             }
             
             .btn {
@@ -1214,6 +1230,20 @@
                 font-size: 1.1rem;
                 top: 85%;
             }
+            
+            /* Mobile menu text size */
+            nav ul li a {
+                font-size: 1.1rem;
+            }
+            
+            /* Footer adjustments */
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-section {
+                margin-bottom: var(--space-4);
+            }
         }
     </style>
 </head>
@@ -1229,9 +1259,6 @@
                 <span class="hamburger"></span>
             </button>
             <nav id="mainNav">
-                <button class="close-menu" id="closeMenu">
-                    <i class="fas fa-times"></i>
-                </button>
                 <ul>
                     <li><a href="#problem-solution">Problem & Solution</a></li>
                     <li><a href="#features">Features</a></li>
@@ -1395,7 +1422,6 @@
                     <h3>MVP Preview Now Available</h3>
                     <p>Our minimum viable product is now live for preview, showcasing the core risk scoring and insurance interface for Bitcoin holders.</p>
                     <a href="https://riek27.github.io/blocentraAIdemo/" target="_blank" class="btn btn-primary" style="margin-top: var(--space-4); display: inline-block;">View MVP</a>
-            
                 </div>
             </div>
         </div>
@@ -1442,8 +1468,6 @@
                 <p>Crypto security expert, DeFi innovator, AI strategist</p>
                 <p>Email: riekgatluak25@gmail.com</p>
                 <p>WhatsApp: +211981211736</p>
-            </div>
-           
             </div>
         </div>
     </section>
@@ -1528,7 +1552,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>About BlocentraAI</h3>
-                    <p>BlocentraAI is a revolutionary AI-powered Bitcoin insurance and risk intelligence startup, purpose-built to redefine the safety, utility, and productivity of Bitcoin in the modern financial era .</p>
+                    <p>BlocentraAI is a revolutionary AI-powered Bitcoin insurance and risk intelligence startup, purpose-built to redefine the safety, utility, and productivity of Bitcoin in the modern financial era.</p>
                     <div class="social-icons">
                         <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-linkedin"></i></a>
@@ -1549,7 +1573,6 @@
                     <h3>Contact</h3>
                     <a href="mailto:blocentraai@gmail.com">Email: contact@blocentra.ai</a>
                     <a href="https://wa.me/211981211736">WhatsApp: +211 981 211 736</a>
-                  
                 </div>
                 <div class="footer-section">
                     <h3>Legal</h3>
@@ -1573,7 +1596,6 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Mobile Menu Toggle
             const menuToggle = document.getElementById('menuToggle');
-            const closeMenu = document.getElementById('closeMenu');
             const mainNav = document.getElementById('mainNav');
             const navLinks = document.querySelectorAll('nav a');
             const overlay = document.getElementById('overlay');
@@ -1584,15 +1606,7 @@
                 menuToggle.classList.toggle('active');
                 mainNav.classList.toggle('active');
                 overlay.classList.toggle('active');
-                document.body.style.overflow = 'hidden';
-            });
-            
-            // Close mobile menu
-            closeMenu.addEventListener('click', () => {
-                menuToggle.classList.remove('active');
-                mainNav.classList.remove('active');
-                overlay.classList.remove('active');
-                document.body.style.overflow = '';
+                document.body.classList.toggle('no-scroll');
             });
             
             // Close menu when clicking on overlay
@@ -1600,7 +1614,7 @@
                 menuToggle.classList.remove('active');
                 mainNav.classList.remove('active');
                 overlay.classList.remove('active');
-                document.body.style.overflow = '';
+                document.body.classList.remove('no-scroll');
             });
             
             // Close menu when clicking on links
@@ -1609,7 +1623,7 @@
                     menuToggle.classList.remove('active');
                     mainNav.classList.remove('active');
                     overlay.classList.remove('active');
-                    document.body.style.overflow = '';
+                    document.body.classList.remove('no-scroll');
                 });
             });
             
@@ -1638,7 +1652,7 @@
                 });
             });
 
-            // Smooth scrolling for navigation links
+            // Enhanced smooth scrolling for navigation links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -1648,8 +1662,12 @@
                     
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
+                        // Calculate position with header height offset
+                        const headerHeight = document.querySelector('header').offsetHeight;
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                        
                         window.scrollTo({
-                            top: targetElement.offsetTop - 80,
+                            top: targetPosition,
                             behavior: 'smooth'
                         });
                     }
