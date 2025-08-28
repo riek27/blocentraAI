@@ -549,6 +549,7 @@
             transform: scaleX(0);
             transform-origin: left;
             transition: transform 0.5s ease;
+            z-index: 1;
         }
 
         .customer-card:hover::before {
@@ -631,6 +632,7 @@
         .comparison-container {
             overflow-x: auto;
             margin: 40px 0;
+            padding-bottom: 20px;
         }
 
         .comparison-table {
@@ -1508,7 +1510,7 @@
             <div class="hero-buttons">
                 <button class="cta-button" id="heroCta">Get Early Access</button>
                 <a href="https://riek27.github.io/blocentraAIdemo/" target="_blank" class="demo-button">View MVP Demo</a>
-                <button class="secondary-button">View Whitepaper</button>
+                <a href="https://riek27.github.io/whitepaper/" target="_blank" class="secondary-button">View Whitepaper</a>
             </div>
             <div class="bitcoin-animation">
                 <div class="floating-btc">₿</div>
@@ -1754,17 +1756,19 @@
             </div>
             <div class="team-grid">
                 <div class="team-card">
-                
+                    <div class="team-image" style="background: var(--gradient-primary); display: flex; align-items: center; justify-content: center;">
+                        <span style="color: white; font-size: 2.5rem; font-weight: bold;">RG</span>
+                    </div>
                     <h3 class="team-name">Riek Gatluak Geka</h3>
                     <p class="team-role">CEO & Founder</p>
-                    <p>AI Strategies, AI System Architecture, </p>
+                    <p>AI Strategies, AI System Architecture, Blockchain Security</p>
                     <div class="team-social">
                         <a href="#"><i class="fab fa-linkedin"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
                 
-                
+                <!-- Additional team members can be added here -->
             </div>
         </div>
     </section>
@@ -1884,8 +1888,8 @@
                 <div class="timeline-item">
                     <div class="timeline-date">2027 Q1 - 2027 Q2</div>
                     <div class="timeline-content">
-                        <h3>NMiddle East</h3>
-                        <p>Expand to Meddle east and Canada. Establish B2G pilots in UAE and Saudi Arabia</p>
+                        <h3>Middle East</h3>
+                        <p>Expand to Middle East and Canada. Establish B2G pilots in UAE and Saudi Arabia</p>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -1965,7 +1969,7 @@
                 <p>We'll be in touch soon with early access details. In the meantime, check out our MVP demo and whitepaper.</p>
                 <div class="hero-buttons" style="margin-top: 30px;">
                     <a href="https://riek27.github.io/blocentraAIdemo/" target="_blank" class="demo-button">View MVP Demo</a>
-                    <button class="secondary-button">View Whitepaper</button>
+                    <a href="https://riek27.github.io/whitepaper/" target="_blank" class="secondary-button">View Whitepaper</a>
                 </div>
             </div>
             
@@ -2055,7 +2059,7 @@
                 </div>
                 <div class="footer-column">
                     <h3>Resources</h3>
-                    <a href="#">Whitepaper</a>
+                    <a href="https://riek27.github.io/whitepaper/" target="_blank">Whitepaper</a>
                     <a href="#">Documentation</a>
                     <a href="https://riek27.github.io/blocentraAIdemo/" target="_blank">MVP Demo</a>
                     <a href="#">API Access</a>
@@ -2105,6 +2109,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize particles.js
             particlesJS('particles-js', {
                 "particles": {
                     "number": {
@@ -2194,6 +2199,7 @@
                 "retina_detect": true
             });
 
+            // Header scroll effect
             const header = document.querySelector('header');
             window.addEventListener('scroll', function() {
                 if (window.scrollY > 50) {
@@ -2203,6 +2209,7 @@
                 }
             });
 
+            // Mobile menu toggle
             const menuToggle = document.getElementById('menuToggle');
             const mainNav = document.getElementById('mainNav');
             
@@ -2211,6 +2218,7 @@
                 menuToggle.classList.toggle('active');
             });
 
+            // Smooth scrolling for navigation links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
@@ -2232,6 +2240,7 @@
                 });
             });
 
+            // Waitlist form submission
             const waitlistForm = document.getElementById('waitlistForm');
             const waitlistFormContainer = document.getElementById('waitlistFormContainer');
             const thankYouMessage = document.getElementById('thankYouMessage');
@@ -2248,6 +2257,7 @@
                 });
             }
 
+            // CTA buttons
             const ctaButtons = document.querySelectorAll('.cta-button:not([type="submit"])');
             ctaButtons.forEach(button => {
                 button.addEventListener('click', function() {
@@ -2255,6 +2265,7 @@
                 });
             });
 
+            // FAQ accordion
             const faqItems = document.querySelectorAll('.faq-item');
             faqItems.forEach(item => {
                 const question = item.querySelector('.faq-question');
@@ -2269,6 +2280,7 @@
                 });
             });
 
+            // Scroll animations
             function checkScroll() {
                 const elements = document.querySelectorAll('.solution-card, .customer-card, .stat-card, .risk-item, .process-step, .timeline-content, .feature-card, .revenue-card, .team-card');
                 
@@ -2282,6 +2294,7 @@
                 });
             }
 
+            // Initialize scroll animations
             document.querySelectorAll('.solution-card, .customer-card, .stat-card, .risk-item, .process-step, .timeline-content, .feature-card, .revenue-card, .team-card').forEach(element => {
                 element.style.opacity = 0;
                 element.style.transform = 'translateY(20px)';
@@ -2308,6 +2321,7 @@
             chatbotWidget.addEventListener('click', function() {
                 if (chatbotContainer.style.display === 'none') {
                     chatbotContainer.style.display = 'flex';
+                    chatbotInput.focus();
                 } else {
                     chatbotContainer.style.display = 'none';
                 }
